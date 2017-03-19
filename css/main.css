@@ -1,0 +1,178 @@
+/*------------- Breakpoints mixin*/
+/*------------- Heading mixins*/
+/*------------- Flexbox mixins*/
+/*------------- Flexbox center mixin*/
+/*---------------Mixins for transforms, transitions and animations*/
+/*Mixin for animation on contact page*/
+/*Mixin for hide & show*/
+header {
+  background: white;
+  position: fixed;
+  width: 100%;
+  height: 2.4em;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between; }
+  header nav {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    -ms-align-items: flex-end;
+    align-items: flex-end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: flex-end;
+    width: 70%; }
+    header nav a {
+      margin: 0.2em 6% 0 0;
+      color: black;
+      font-size: 1.5em; }
+
+#title {
+  margin: 0.2em 0 0 2.2%;
+  font-size: 2em;
+  color: black; }
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background: white;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+a {
+  text-decoration: none;
+  font-family: 'Nothing You Could Do', cursive; }
+
+h1, h2, h3, #title {
+  font-family: 'Nothing You Could Do', cursive; }
+
+p {
+  font-family: 'Open Sans', sans-serif; }
+
+main {
+  width: 96%;
+  height: 200em;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.hero-section {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  background: url("../images/bakgrund.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 1060px;
+  min-width: 70em; }
+
+.hero-img {
+  width: 100%;
+  height: auto; }
+
+img {
+  height: 15em;
+  width: auto;
+  margin: 1em;
+  background-size: contain; }
+
+.list-wrapper {
+  width: 100%;
+  height: auto;
+  background: black;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
+.list-section {
+  width: 60%;
+  background: black; }
+
+.main-figure {
+  width: auto; }
+
+.landing-h1 {
+  font-size: 3em;
+  color: white; }
+
+/*# sourceMappingURL=main.css.map */

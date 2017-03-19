@@ -1,0 +1,246 @@
+// VARIABLES AND MIXINS
+//COLORS
+
+$purple: #e5c3ff;
+$yellow: #FFFF82;
+//FONTS
+
+$dev-font:Arial;
+$art-font:'Muli', sans-serif;
+
+
+
+/*------------- Breakpoints mixin*/
+
+$breakpoints: ( 'xxsmall': ( max-width: 360px),'xsmall': ( max-width: 375px), 'small': ( max-width: 464px),'smedium': ( max-width: 560px ), 'medium': ( max-width: 854px), 'large': ( max-width: 1100px), 'xlarge': ( max-width: 1300px), 'xxlarge': ( max-width:1500px));
+@mixin breakpoint($name) {
+    @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+            @content;
+        }
+    }
+    @else {
+        @warn "No breakpoint with this name `#{$name}`.";
+    }
+}
+
+
+/*------------- Heading mixins*/
+
+@mixin heading {
+    font-family: $heading-face;
+    line-height: 1.5;
+}
+
+@mixin heading-1 {
+    @include heading;
+    font-size: 3em;
+}
+
+@mixin heading-2 {
+    @include heading;
+    font-size: 2.5em;
+}
+
+@mixin heading-3 {
+    @include heading;
+    font-size: 2em;
+}
+
+@mixin heading-4 {
+    @include heading;
+    font-size: 1.5em;
+}
+
+@mixin heading-5 {
+    @include heading;
+    font-size: 1.2em;
+}
+
+@mixin heading-6 {
+    @include heading;
+    font-size: 0.6em;
+}
+
+
+/*------------- Flexbox mixins*/
+
+// Flexbox display
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+// <positive-number>, initial, auto, or none
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+    flex: $values;
+}
+
+// row | row-reverse | column | column-reverse
+@mixin flex-direction($direction) {
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+// <number>
+@mixin flex-grow($grow) {
+    -webkit-flex-grow: $grow;
+    -moz-flex-grow: $grow;
+    -ms-flex-grow: $grow;
+    flex-grow: $grow;
+}
+
+// flex-start | flex-end | center | space-between | space-around
+@mixin justify-content($justify) {
+    -webkit-justify-content: $justify;
+    -moz-justify-content: $justify;
+    -ms-justify-content: $justify;
+    justify-content: $justify;
+    -ms-flex-pack: $justify;
+}
+
+// flex-start | flex-end | center | space-between | space-around | stretch
+@mixin align-content($align) {
+    -webkit-align-content: $align;
+    -moz-align-content: $align;
+    -ms-align-content: $align;
+    align-content: $align;
+}
+
+// flex-start | flex-end | center | baseline | stretch
+@mixin align-items($align) {
+    -webkit-align-items: $align;
+    -moz-align-items: $align;
+    -ms-align-items: $align;
+    align-items: $align;
+}
+
+// auto | flex-start | flex-end | center | baseline | stretch
+@mixin align-self($align) {
+    -webkit-align-self: $align;
+    -moz-align-self: $align;
+    -ms-align-self: $align;
+    align-self: $align;
+}
+
+
+/*------------- Flexbox center mixin*/
+
+@mixin flex-center() {
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+}
+
+
+/*---------------Mixins for transforms, transitions and animations*/
+
+@mixin transition($time) {
+    -webkit-transition: $time;
+    -moz-transition: $time;
+    -ms-transition: $time;
+    -o-transition: $time;
+    transition: $time;
+}
+
+@mixin transition-delay($time) {
+    -webkit-transition-delay: $time;
+    -moz-transition-delay: $time;
+    -ms-transition-delay: $time;
+    -o-transition-delay: $time;
+    transition-delay: $time;
+}
+
+@mixin transform-style($style) {
+    -webkit-transform-style: $style;
+    -moz-transform-style: $style;
+    -ms-transform-style: $style;
+    -o-transform-style: $style;
+    transform-style: $style;
+}
+
+@mixin backface-visibility($visibility: hidden) {
+    -webkit-backface-visibility: $visibility;
+    -moz-backface-visibility: $visibility;
+    -ms-backface-visibility: $visibility;
+    -o-backface-visibility: $visibility;
+    backface-visibility: $visibility;
+}
+
+@mixin transform($transformation) {
+    -webkit-transform: $transformation;
+    -moz-transform: $transformation;
+    -ms-transform: $transformation;
+    -o-transform: $transformation;
+    transform: $transformation;
+}
+
+
+/*Mixin for animation on contact page*/
+
+@mixin keyframe ($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($animation, $duration, $forwards, $iteration) {
+    -webkit-animation-name: #{$animation};
+    -webkit-animation-duration: #{$duration};
+    -webkit-animation-fill-mode: #{$forwards};
+    -webkit-animation-iteration-count: #{$iteration};
+    /* forward prevents the animation from restarting! */
+    -moz-animation-name:#{$animation};
+    -moz-animation-duration: #{$duration};
+    -moz-animation-fill-mode: #{$forwards};
+    -moz-animation-iteration-count: #{$iteration};
+    -ms-animation-name:#{$animation};
+    -ms-animation-duration: #{$duration};
+    -ms-animation-fill-mode: #{$forwards};
+    -ms-animation-iteration-count: #{$iteration};
+    -o-animation-name: #{$animation};
+    -o-animation-duration: #{$duration};
+    -o-animation-fill-mode: #{$forwards};
+    -o-animation-iteration-count:#{$iteration};
+    animation-name: #{$animation};
+    animation-duration: #{$duration};
+    animation-fill-mode: #{$forwards};
+    animation-iteration-count: #{$iteration};
+}
+
+
+/*Mixin for hide & show*/
+
+@mixin fade($type) {
+    @if $type=='hide' {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 1s, opacity 1s;
+    }
+    @else if $type=='show' {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 1s, opacity 1s;
+    }
+}

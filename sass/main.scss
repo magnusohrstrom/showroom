@@ -1,0 +1,85 @@
+@import "varmix";
+@import "header";
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin:0;
+  padding: 0;
+  background:white;
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Nothing You Could Do', cursive;
+
+}
+
+h1,h2,h3,#title {
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  width: 96%;
+  height: 200em;
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+}
+
+.hero-section {
+  @include flexbox();
+  @include justify-content(center);
+  @include flex-direction(column);
+  @include align-items(center);
+  //border:1px solid red;
+  background: url('../images/bakgrund.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height:1060px;
+  min-width: 70em;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  height: 15em;
+  width: auto;
+  margin:1em;
+  background-size: contain;
+
+}
+
+.list-wrapper {
+  width: 100%;
+  height: auto;
+  background: black;
+  @include flexbox();
+  @include flex-direction(column);
+  @include justify-content(flex-start);
+  @include align-items(center);
+}
+
+.list-section {
+  width: 60%;
+  background: black;
+}
+
+.main-figure {
+  width: auto;
+}
+
+.landing-h1 {
+  font-size: 3em;
+  color:white;
+}
