@@ -264,6 +264,7 @@ main {
   .list-figure img {
     height: 15em;
     width: auto;
+    max-width: 30em;
     margin: 0em;
     background-size: contain; }
 

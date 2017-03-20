@@ -12,30 +12,24 @@ const showRoom = (function(){
       let movieHtml = '';
 
       for(var i = 0 ; i < list.length; i++){
-        if(list[i].hasImage !== false){
-          movieHtml +=
-            `          <figure class="list-figure">
-                        <img src="${list[i].webImage.url}">
-                        <p>${list[i].longTitle}</p>
-                      </figure>
-            `;
+        if(list[i].webImage !== null){
+          movieHtml += `<figure class="list-figure">
+                          <img src="${list[i].webImage.url}">
+                          <p>${list[i].longTitle}</p>
+                        </figure>`;
           }
-          else{}
         }
-
-
-
         section.innerHTML = movieHtml;
-
     },
+
     getFromSearchQuery: () => {
 
       let query = document.getElementsByClassName('search-input')[0].value;
 
       $.ajax({
         method: 'GET',
-        dataType:'jsonp',
-        //url:"http://www.rijksmuseum.nl/api/oai2/[mvBTcUjC]/?verb=ListRecords&set=collectie_online&metadataPrefix=oai_dc",
+        dataType:'json',
+        //url:"https://www.rijksmuseum.nl/api/pages/nl/ontdek-de-collectie/overzicht/rembrandt-harmensz-van-rijn?key=mvBTcUjC&format=json",
         url:`https://www.rijksmuseum.nl/api/en/collection?q=${query}&key=mvBTcUjC&format=jsonp&ps=10`,
 
         success: (response) => {
@@ -82,7 +76,39 @@ function get(){
      //json.JSON.parse();
    });
 }
-get();
+//get();
+
+
+function getFrom(){
+
+
+
+  $.ajax({
+    method: 'GET',
+    dataType:'json',
+    url:"https://www.rijksmuseum.nl/api/pages/nl/ontdek-de-collectie/overzicht/rembrandt-harmensz-van-rijn?key=mvBTcUjC&format=json",
+    //url:`https://www.rijksmuseum.nl/api/en/collection?q=${query}&key=mvBTcUjC&format=jsonp&ps=10`,
+
+    success: (response) => {
+
+      console.log(response);
+      tempList = response.JSON.parse();
+      //showRoom.appendResultsToInterface(tempList);
+
+      console.log(tempList);
+    },
+    error:() => { console.log("error");}
+
+});
+}
+getFrom();
+
+
+
+
+
+
+
 /*
 //get();
 function jsonGET(){
