@@ -1,5 +1,7 @@
 @import "varmix";
 @import "header";
+@import "forms";
+
 body {
   width: 100%;
   overflow-x: hidden;
@@ -14,15 +16,17 @@ body {
 a {
   text-decoration: none;
   font-family: 'Nothing You Could Do', cursive;
-
+    letter-spacing: 0.09em;
 }
 
-h1,h2,h3,#title {
+h1,h2,h3,#title,{
   font-family: 'Nothing You Could Do', cursive;
+  letter-spacing: 0.09em;
 }
 
-p {
+p,label  {
   font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.09em;
 }
 
 main {
@@ -40,10 +44,10 @@ main {
   @include align-items(center);
   //border:1px solid red;
   background: url('../images/bakgrund.jpg');
-  background-size: contain;
+  background-size:  cover;
   background-repeat: no-repeat;
   width: 100%;
-  height:1060px;
+  height:860px;
   min-width: 70em;
 }
 
@@ -52,18 +56,10 @@ main {
   height: auto;
 }
 
-img {
-  height: 15em;
-  width: auto;
-  margin:1em;
-  background-size: contain;
-
-}
-
 .list-wrapper {
   width: 100%;
   height: auto;
-  background: black;
+  background:$wall-grey;;
   @include flexbox();
   @include flex-direction(column);
   @include justify-content(flex-start);
@@ -71,8 +67,14 @@ img {
 }
 
 .list-section {
-  width: 60%;
-  background: black;
+  @include flexbox();
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include align-items(flex-start);
+  flex-wrap: wrap;
+  width: 80%;
+  background: $wall-grey;
+
 }
 
 .main-figure {
@@ -80,6 +82,56 @@ img {
 }
 
 .landing-h1 {
+
+  opacity: 0;
   font-size: 3em;
   color:white;
+  animation-delay: 2.6s;
+  @include animation(fade,2s,forwards,1);
+  @include transition(all 2s ease);
+}
+.landing-h1.showroom-h1 {
+  font-size: 6em;
+  animation-delay: 2s;
+  color:orange;
+  margin-bottom: 0;
+}
+
+.list-figure {
+  height: 30em;
+  width: 30em;
+  background:white;
+
+
+  & p {
+    margin: 1em;
+    font-style: italic;
+  }
+
+  & img {
+    height: 15em;
+    width: auto;
+    margin:0em;
+    background-size: contain;
+  }
+}
+
+//animation for about.
+@include keyframe (fade) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@include keyframe (fade-out) {
+  from {
+    opacity: 1;
+    display: flex;
+  }
+  to {
+    opacity: 0;
+    display:none;
+  }
 }

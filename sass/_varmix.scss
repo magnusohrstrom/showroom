@@ -1,8 +1,7 @@
 // VARIABLES AND MIXINS
 //COLORS
 
-$purple: #e5c3ff;
-$yellow: #FFFF82;
+$wall-grey:#292D3F;
 //FONTS
 
 $dev-font:Arial;
@@ -241,6 +240,6 @@ $breakpoints: ( 'xxsmall': ( max-width: 360px),'xsmall': ( max-width: 375px), 's
     @else if $type=='show' {
         visibility: visible;
         opacity: 1;
-        transition: visibility 1s, opacity 1s;
+        transition: visibility 2s, opacity 3s;
     }
 }

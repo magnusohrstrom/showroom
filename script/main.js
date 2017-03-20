@@ -14,7 +14,11 @@ const showRoom = (function(){
       for(var i = 0 ; i < list.length; i++){
         if(list[i].hasImage !== false){
           movieHtml +=
-            `<img src="${list[i].webImage.url}">`;
+            `          <figure class="list-figure">
+                        <img src="${list[i].webImage.url}">
+                        <p>${list[i].longTitle}</p>
+                      </figure>
+            `;
           }
           else{}
         }
@@ -24,16 +28,15 @@ const showRoom = (function(){
         section.innerHTML = movieHtml;
 
     },
-    getFromSearchTitle: () => {
+    getFromSearchQuery: () => {
+
       let query = document.getElementsByClassName('search-input')[0].value;
+
       $.ajax({
         method: 'GET',
         dataType:'jsonp',
-        //beforeSend:function(xhr){xhr.setRequestHeader('Access-Control-Allow-Origin', '*');},
-
-        //url:"http://www.rijksmuseum.nl/api/oai2/mvBTcUjC/",
         //url:"http://www.rijksmuseum.nl/api/oai2/[mvBTcUjC]/?verb=ListRecords&set=collectie_online&metadataPrefix=oai_dc",
-        url:`https://www.rijksmuseum.nl/api/en/collection?q=${query}&key=mvBTcUjC&format=jsonp&ps=100`,
+        url:`https://www.rijksmuseum.nl/api/en/collection?q=${query}&key=mvBTcUjC&format=jsonp&ps=10`,
 
         success: (response) => {
 
@@ -52,8 +55,8 @@ const showRoom = (function(){
     },
     //funciton that sets eventlisteners on app initiation.
     init: () => {
-      document.getElementsByClassName('search-input')[0].addEventListener('input',showRoom.getFromSearchTitle);
-      document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.logTempList);
+      document.getElementsByClassName('search-input')[0].addEventListener('input',showRoom.getFromSearchQuery);
+      //document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.logTempList);
 
 
     }
@@ -65,20 +68,22 @@ showRoom.init();
 
 //showRoom.getFromSearchTitle();
 
-/*
+
 function get(){
   var init = {
-    method: 'GET'
-  }
-  fetch('https://www.rijksmuseum.nl/api/en/collection/sk-c-5?key=mvBTcUjC&format=json', init
+    method: 'GET',
+    headers: 'CORS'
+  };
+  fetch('https://www.rijksmuseum.nl/api/pages/en/explore-the-collection/overview/rembrandt-harmensz-van-rijn?key=mvBTcUjC&format=json', init
 ).then(function(response){
-  return response;
+  return response.json();
   }).then(function(json){
      console.log(json);
+     //json.JSON.parse();
    });
 }
-//get();
-
+get();
+/*
 //get();
 function jsonGET(){
   $.ajax({

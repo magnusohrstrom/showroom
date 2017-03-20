@@ -1,0 +1,26 @@
+.search-form {
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(flex-start);
+  height: 10em;
+  margin:1em 0 0 0;
+  background: none;
+
+  & label {
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Nothing You Could Do', cursive;
+  }
+
+  & input {
+    background: none;
+    border-style: dashed;
+    width: 30rem;
+    height: 2em;
+    font-size: 1.5em;
+    color:white;
+    &:active{
+      
+    }
+  };
+}
