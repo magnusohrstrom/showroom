@@ -1,16 +1,23 @@
 .search-form {
   @include flexbox();
-  @include flex-direction(column);
+  @include flex-direction(row);
   @include align-items(flex-start);
+  @include justify-content(center);
   height: auto;
-  margin:1em 0 0 0;
-  //background: teal;
-  width: 30em;
+  margin:0 0 0 0;
+  background: $wall-grey;
+  width: 100%;
   & button {
-    height: 3em;
+    height: 2em;
+    width: 10em;
+    font-size: 1.5em;
+    color:$wall-grey;
+    background: white;
+    border:0;
+    margin: 2.5em 0 0 0;
   }
   & label {
-    color: $wall-grey;
+    color: white;
     font-size: 1.5em;
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
@@ -22,7 +29,7 @@
     width: 100%;
     height: 2em;
     font-size: 1.5em;
-    color:black;
+    color:white;
     &:active{
 
     }
@@ -31,7 +38,7 @@
 
 select {
 height: 3rem;
-width: 100%;
+width: 50%;
 border-radius: 0;
 border:none;
 background-color: white;
@@ -53,4 +60,27 @@ padding:0;
   @include justify-content(flex-start);
   height: 20em;
   width: 100%;
+}
+
+.form-module {
+  width: 23.3333%;
+  height: auto;
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(flex-start);
+  @include justify-content(flex-start);
+}
+
+.form-module.middle-module {
+  width: 70%;
+  //@include align-items(center);
+}
+
+.select-wrapper {
+  width: 30.33%;
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
+
 }

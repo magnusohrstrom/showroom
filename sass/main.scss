@@ -57,13 +57,15 @@ main {
 }
 
 .list-wrapper {
-  width: 100%;
+  width: 98%;
   height: auto;
-  background:$wall-grey;;
+  background:white;
   @include flexbox();
   @include flex-direction(column);
   @include justify-content(flex-start);
   @include align-items(center);
+  border:1em solid $wall-grey;
+
 }
 
 .list-section {
@@ -73,8 +75,9 @@ main {
   @include align-items(flex-start);
   flex-wrap: wrap;
   width: 80%;
-  min-height: 4em;
+  min-height: 30em;
   background: white;
+
 
 
 }
@@ -95,8 +98,8 @@ main {
 .landing-h1.showroom-h1 {
   font-size: 6em;
   animation-delay: 2s;
-  color:orange;
-  margin-bottom: 0;
+  color:coral;
+  margin:-1em 0 0 0;
 }
 
 .landing-h1.browse-h1{
@@ -107,7 +110,7 @@ main {
 
 .list-figure {
   height: auto;
-  width: 27%;
+  width: 26%;
   background:white;
 
   & h4 {

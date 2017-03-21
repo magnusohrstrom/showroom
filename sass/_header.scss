@@ -18,7 +18,7 @@ header {
     & a {
       margin:0.2em 3% 0 3%;
       //margin-right: 3%;
-      color:black;
+      color:$wall-grey;
       font-size: 1.5em;
     }
   }
@@ -28,5 +28,5 @@ header {
   margin: 0.2em 0 0 2.2%;
   font-size: 2em;
 
-  color:black;
+  color:$wall-grey;
 }
