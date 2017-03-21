@@ -24,14 +24,14 @@ h1,h2,h3,#title,{
   letter-spacing: 0.09em;
 }
 
-p,label  {
+p,label,h4  {
   font-family: 'Open Sans', sans-serif;
   letter-spacing: 0.09em;
 }
 
 main {
   width: 96%;
-  height: 200em;
+  height: auto;
   @include flexbox();
   @include flex-direction(column);
   @include align-items(center);
@@ -73,7 +73,9 @@ main {
   @include align-items(flex-start);
   flex-wrap: wrap;
   width: 80%;
-  background: $wall-grey;
+  min-height: 4em;
+  background: white;
+
 
 }
 
@@ -97,21 +99,30 @@ main {
   margin-bottom: 0;
 }
 
+.landing-h1.browse-h1{
+  font-size: 2.2em;
+  color: $wall-grey;
+  animation-delay: 2.8s;
+}
+
 .list-figure {
-  height: 30em;
-  width: 30em;
+  height: auto;
+  width: 27%;
   background:white;
 
-
-  & p {
-    margin: 1em;
+  & h4 {
+    font-size:1.3em;
+    //margin: 1em;
+  }
+  & h4 {
     font-style: italic;
+    margin:0.5em 0 0 0;
   }
 
   & img {
-    height: 15em;
-    width: auto;
-    max-width: 30em;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
     margin:0em;
     background-size: contain;
   }

@@ -19,14 +19,61 @@
     <main>
       <section class="hero-section">
         <h1 class="landing-h1 showroom-h1">Showroom</h1>
-        <h1 class="landing-h1">Explore our collections of dutch classical art.</h1>
+        <h1 class="landing-h1">Explore our digital gallery of dutch classical art.</h1>
 
-        <form class="search-form" action="index.html" method="post">
-          <label for="search-input">Search</label>
-          <input class="search-input" type="text" name="" value="">
-          <button class="search-button" type="button" name="button">CLICK</button>
-        </form>
+
       </section>
+
+      <h1 class="landing-h1 browse-h1">Browse through the archives</h1>
+      <form class="search-form" action="">
+
+        <label for="search-input">Search</label>
+        <input class="search-input" type="text" name="" value="">
+        <button class="search-button" type="button" name="button">CLICK</button>
+        <div class="select-div">
+
+          <label for="artist">Artist</label>
+          <select id="artist-select" name="artist">
+            <option value="">Specify artist</option>
+            <option value="Rembrandt+Harmensz.+van+Rijn">Rembrandt van Rijn</option>
+            <option value="Johannes+Vermeer">Johannes Vermeer</option>
+            <option value="Pieter+Brueghel+(I)">Pieter Brueghel</option>
+            <option value="Jan+Havicksz.+Steen">Jan Havicksz. Steen</option>
+            <option value="Lucas+van+Leyden">Lucas van Leyden</option>
+            <option value="Frans+Hals">Frans Hals</option>
+            <option value="Hendrick+ter+Brugghen">Hendrick ter Brugghen</option>
+            <option value="Willem+Kalf">Willem Kalf</option>
+            <option value="Rachel+Ruysch">Rachel Ruysch</option>
+            <option value="Vincent+van+Gogh">Vincent van Gogh</option>
+            <option value="Aert%20de%20Gelder">Aert de Gelder</option>
+            <option value="Theo+van+Doesburg">Theo van Doesburg</option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+          </select>
+          <label for="artwork-type">Artwork-type</label>
+          <select id="type-select" name="artwork-type">
+            <option value="">Specify type of artwork</option>
+            <option value="painting">Paintings</option>
+            <option value="drawing">Drawings</option>
+            <option value="figure">Figures</option>
+            <option value="photograph">Photographs</option>
+
+          </select>
+
+            <label for="year-from">From year:</label>
+            <input id="year-from" type="text" name="year-from" value="">
+            <label for="to-year">To year:</label>
+            <input id="year-to" type="text" name="to-year" value="">
+
+
+
+        </div>
+      </form>
 
       <figure class="main-figure">
 

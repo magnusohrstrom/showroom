@@ -2,25 +2,55 @@
   @include flexbox();
   @include flex-direction(column);
   @include align-items(flex-start);
-  height: 10em;
+  height: auto;
   margin:1em 0 0 0;
-  background: none;
-
+  //background: teal;
+  width: 30em;
+  & button {
+    height: 3em;
+  }
   & label {
-    color: white;
+    color: $wall-grey;
     font-size: 1.5em;
-    font-family: 'Nothing You Could Do', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
   }
 
   & input {
     background: none;
     border-style: dashed;
-    width: 30rem;
+    width: 100%;
     height: 2em;
     font-size: 1.5em;
-    color:white;
+    color:black;
     &:active{
-      
+
     }
   };
+}
+
+select {
+height: 3rem;
+width: 100%;
+border-radius: 0;
+border:none;
+background-color: white;
+color:black;
+overflow: hidden!important;
+font-size: 1em;
+font-family: 'Open Sans', sans-serif;
+margin:0 0 2em 0;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+padding:0;
+}
+
+.select-div {
+  @include flexbox();
+  @include flex-direction(column);
+  @include align-items(flex-start);
+  @include justify-content(flex-start);
+  height: 20em;
+  width: 100%;
 }

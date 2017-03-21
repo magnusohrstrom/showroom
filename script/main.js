@@ -2,7 +2,7 @@
 const showRoom = (function(){
   let tempList = [];
   let fullList = [];
-  let Html = '';
+
 
   return {
     //Get function for all get requests.
@@ -13,67 +13,97 @@ const showRoom = (function(){
         url:url
       })
         .always(function(res){
-
+          console.log(res);
         })
           .fail(()=>{
             console.log('error!');
           });
     },
 
-    appendListFigure:(object) => {
-      if(object.artObject.webImage !== null){
-        Html += `<figure class="list-figure">
-                        <img src="${object.artObject.webImage.url}">
-                        <h3>${object.artObject.title}</h3>
-                        <p>${object.artObject.principalMaker}</p>
-                        <p>${object.artObject.dating.year}</p>
-                      </figure>`;
-        }
-    },
-
-    appendHtml: () => {
-      let section = document.getElementsByClassName('list-section')[0];
-      console.log(Html);
-      section.innerHTML = Html;
-    },
-
-    appendResultsToInterface: (object) => {
-
-      let section = document.getElementsByClassName('list-section')[0];
-
-      for(let i = 0 ; i < list.length; i++){
-        if(list[0][i].artObject.webImage !== null){
-          Html += `<figure class="list-figure">
-                          <img src="${list[i].Object.artObject.webImage.url}">
-                          <h3>${list[i].artObject.title}</h3>
-                          <p>${list[i].artObject.principalMaker}</p>
-                          <p>${list[i].artObject.dating.year}</p>
-                        </figure>`;
-          }
-        }
-        section.innerHTML = Html;
-    },
     //Main search function/////////////////////////////////////////
     getFromSearchQuery: () => {
 
       let query = document.getElementsByClassName('search-input')[0].value;
+      let artist = document.getElementById('artist-select').value;
+      let type = document.getElementById('type-select').value;
+      let yearFrom = document.getElementById('year-from').value;
+      let yearTo = document.getElementById('year-to').value;
 
-      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&key=mvBTcUjC&format=json&ps=10`)
+      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection/?q=${query}&involvedMaker=${artist}&type=${type}&imgonly=True&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=100&key=WU1Jjq7U&format=json&st=OBJECTS`)
         .done(function(response){
-          showRoom.getListOfObjectNumbers(response);
+          console.log(response);
+          tempList = response.artObjects;
+          showRoom.appendResponseToInterface(tempList);
 
-          });
-          console.log(tempList);
-          showRoom.getObjectsFromObjectNumberList(tempList);
 
+        });
       },
 
-    getListOfObjectNumbers:(response)=>{
+
+
+    //Appends search-result-respond to html-interface.
+    appendResponseToInterface:(list) => {
+      let Html = '';
+      let section = document.getElementsByClassName('list-section')[0];
+      for (let i = 0; i < list.length; i++) {
+        if(list[i].webImage !== null){
+          Html += `<figure class="list-figure">
+                          <img src="${list[i].webImage.url}">
+                          <h4>${list[i].title}</h4>
+                          <p>${list[i].principalOrFirstMaker}</p>
+                        </figure>`;
+        }
+      }
+      section.innerHTML = Html;
+      /*
+let Html = '';
+      let section = document.getElementsByClassName('list-section')[0];
+      for (let i = 0; i < list.length; i++) {
+        if(list[i].webImage !== null){
+          Html += `<figure class="list-figure">
+                          <img src="${list[i].webImage.url}">
+                          <h3>${list[i].title}</h3>
+                          <p>${list[i].principalMaker}</p>
+                          <p>${list[i].dating.year}</p>
+                        </figure>`;
+          }
+        }
+      section.innerHTML = Html;*/
+
+    },
+
+    appendHtmlForEachResponse: (object) => {
+      var section = document.getElementsByClassName('list-section')[0];
+
+      if(object.webImage !== null){
+        Html += `<figure class="list-figure">
+                        <img src="${object.webImage.url}">
+                        <h3>${object.title}</h3>
+                        <p>${object.principalMaker}</p>
+                        <p>${object.dating.year}</p>
+                      </figure>`;
+        }
+
+    section.innerHTML = Html;
+    },
+
+    getListOfObjectNumbers:(response) => {
       let list = response.artObjects;
       return tempList = list.map(function(val){ return val.objectNumber; });
     },
 
     getObjectsFromObjectNumberList: (list) => {
+      fullList = [];
+
+      for (let i = 0; i < list.length; i++) {
+        showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection/${list[i]}?key=WU1Jjq7U&format=json`)
+          .then(function(resp){
+            //showRoom.appendHtmlForEachResponse(resp.artObject);
+            fullList.push(resp.artObject);
+            console.log(i);
+            console.log(fullList);
+          });
+      /*
       Html = '';
       for (var i = 0; i < list.length; i++) {
         showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection/${list[i]}?key=mvBTcUjC&format=json`)
@@ -83,21 +113,34 @@ const showRoom = (function(){
             console.log(i);
           });
         }
-      showRoom.appendHtml();
+      showRoom.appendHtml(); */
+
+      }
     },
 
     logTempList: () =>{
 
       console.log(fullList);
     },
+    //Enables click on search-button when enter-key is pressed.
+    enterKey:(key) => {
+      key=window.event;
+      if(window.event.keyCode == 13){
+        document.getElementsByClassName('search-button')[0].click();
+        return false;
+  }
+
+},
     //funciton that sets eventlisteners on app initiation.
     init: () => {
-      document.getElementsByClassName('search-input')[0].addEventListener('input',showRoom.getFromSearchQuery);
-      document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.logTempList);
-
+      //document.getElementsByClassName('search-input')[0].addEventListener('input',showRoom.getFromSearchQuery);
+      document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.getFromSearchQuery);
+      //document.getElementsByClassName('search-input')[0].addEventListener('onkeypress','return showRoom.enterKey(event);');
 
     }
 };//end showRoom.
 })();
 
 showRoom.init();
+
+//showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection/?q=rembrandt&type=painting&imgonly=True&ps=100&key=WU1Jjq7U&format=json`);
