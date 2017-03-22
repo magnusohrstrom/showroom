@@ -29,6 +29,13 @@ p,label,h4  {
   letter-spacing: 0.09em;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 main {
   width: 96%;
   height: auto;
@@ -83,7 +90,12 @@ main {
 }
 
 .main-figure {
-  width: auto;
+  width: 50%;
+
+  & img {
+    width: 100%;
+  }
+
 }
 
 .landing-h1 {
@@ -130,6 +142,10 @@ main {
     background-size: contain;
   }
 }
+
+
+
+
 
 //animation for about.
 @include keyframe (fade) {
