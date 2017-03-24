@@ -9,10 +9,10 @@
   </head>
   <body>
     <header>
-      <a id="title" href="#">Showroom</a>
+      <a id="title" href="index.html">Showroom</a>
       <nav>
         <a href="#archives">Archives</a>
-        <a href="#">Tours</a>
+        <a href="#tours-h1">Tours</a>
         <a href="#">Artists</a>
       </nav>
     </header>
@@ -21,22 +21,64 @@
         <h1 class="landing-h1 showroom-h1">Showroom</h1>
         <h1 class="landing-h1">Explore our digital gallery of dutch classical art.</h1>
 
+<!--TOURS-->
+      </section>
+      <h1 id="tours-h1" class="landing-h1 browse-h1">Take a tour</h1>
+      <section class="list-wrapper tours-wrapper">
+
+          <figure id="rembrandt" class="tours-square">
+            <div class="tour-name">
+
+                  <a href="html/rembrandt.html">Rembrandt</a>
+            </div>
+
+          </figure>
+          <figure id="selfportraits" class="tours-square">
+            <div class="tour-name">
+                  <h2>Selfportraits through the centuries</h2>
+            </div>
+
+          </figure>
+          <figure id="animals" class="tours-square">
+            <div class="tour-name">
+                  <h2>Animals in art</h2>
+            </div>
+
+          </figure>
+          <figure id="masterpieces" class="tours-square">
+            <div class="tour-name">
+                  <h2>Masterpieces</h2>
+            </div>
+
+          </figure>
+          <figure id="murder" class="tours-square">
+            <div class="tour-name">
+                  <h2>Murder stories</h2>
+            </div>
+
+          </figure>
+          <figure id="shunga" class="tours-square">
+            <div class="tour-name">
+                <h2>Shunga</h2>
+            </div>
+
+          </figure>
 
       </section>
+      <section class="form-section tours-section">
 
-      <h1 id="archives" class="landing-h1 browse-h1">Browse through the archives</h1>
 
-      <section class="list-wrapper">
-        <section class="form-section">
-        <form class="search-form" action="">
+
+        <figure class="main-figure">
+
+        </figure>
+
+        <form class="search-form tours-form" action="">
           <div class="search-wrapper">
-            <div class="form-module search-module">
-              <label for="search-input">Search</label>
-              <input class="search-input" type="text" name="" value="">
 
-            </div>
-            <button class="search-button" type="button" name="button">Search</button>
+
           </div>
+            <h3>Tailor your own tour!</h3>
             <div class="form-module">
               <label for="artist">Artist</label>
               <select id="artist-select" name="artist">
@@ -61,36 +103,98 @@
                 <option value=""></option>
                 <option value=""></option>
               </select>
-              <label for="artwork-type">Artwork-type</label>
-              <select id="type-select" name="artwork-type">
-                <option value="">Specify type of artwork</option>
-                <option value="painting">Paintings</option>
-                <option value="drawing">Drawings</option>
-                <option value="figure">Figures</option>
-                <option value="photograph">Photographs</option>
-
+              <label for="century-select">Century</label>
+              <select class="century-select" name="">
+                <option value="yearfrom=1300&yearto=1399">14th Century</option>
+                <option value="yearfrom=1400&yearto=1499">15th Century</option>
+                <option value="yearfrom=1500&yearto=1599">16th Century</option>
+                <option value="yearfrom=1600&yearto=1699">17th Century</option>
+                <option value="yearfrom=1700&yearto=1799">18th Century</option>
+                <option value="yearfrom=1800&yearto=1899">19th Century</option>
+                <option value="yearfrom=1900&yearto=1999">20th Century</option>
+                <option value=""></option>
               </select>
             </div>
 
           <div class="form-module">
-            <label for="year-from">From year:</label>
-            <input id="year-from" class="year-input" type="text" name="year-from" value="">
-            <label for="to-year">To year:</label>
-            <input id="year-to" class="year-input" type="text" name="to-year" value="">
+
 
           </div>
+          <button class="tours-button" type="button" name="button">Start tour</button>
         </form>
 
-          <figure class="main-figure">
+      </section>
+      <section class="list-wrapper">
 
-          </figure>
-
-
-        </section>
         <section class="list-section">
 
         </section>
       </section>
+      <h1 id="archives" class="landing-h1 browse-h1">Browse through the archives</h1>
+      <section class="form-section">
+      <div class="triangle">
+        <a href="#"></a>
+      </div>
+      <form class="search-form" action="">
+        <div class="search-wrapper">
+          <div class="form-module search-module">
+            <label for="search-input">Search</label>
+            <input class="search-input" type="text" name="" value="">
+
+          </div>
+          <button class="search-button" type="button" name="button">Search</button>
+        </div>
+          <div class="form-module">
+            <label for="artist">Artist</label>
+            <select id="artist-select" name="artist">
+              <option value="">Specify artist</option>
+              <option value="Rembrandt+Harmensz.+van+Rijn">Rembrandt van Rijn</option>
+              <option value="Johannes+Vermeer">Johannes Vermeer</option>
+              <option value="Pieter+Brueghel+(I)">Pieter Brueghel</option>
+              <option value="Jan+Havicksz.+Steen">Jan Havicksz. Steen</option>
+              <option value="Lucas+van+Leyden">Lucas van Leyden</option>
+              <option value="Frans+Hals">Frans Hals</option>
+              <option value="Hendrick+ter+Brugghen">Hendrick ter Brugghen</option>
+              <option value="Willem+Kalf">Willem Kalf</option>
+              <option value="Rachel+Ruysch">Rachel Ruysch</option>
+              <option value="Vincent+van+Gogh">Vincent van Gogh</option>
+              <option value="Aert%20de%20Gelder">Aert de Gelder</option>
+              <option value="Theo+van+Doesburg">Theo van Doesburg</option>
+              <option value="Peter+Paul+Rubens">Peter Paul Rubens</option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+            </select>
+            <label for="artwork-type">Artwork-type</label>
+            <select id="type-select" name="artwork-type">
+              <option value="">Specify type of artwork</option>
+              <option value="schilder">Paintings</option>
+              <option value="tekenaar">Drawings</option>
+              <option value="figure">Figures</option>
+              <option value="photograph">Photographs</option>
+
+            </select>
+          </div>
+
+        <div class="form-module">
+          <label for="year-from">From year:</label>
+          <input id="year-from" class="year-input" type="text" name="year-from" value="">
+          <label for="to-year">To year:</label>
+          <input id="year-to" class="year-input" type="text" name="to-year" value="">
+
+        </div>
+      </form>
+      </section>
+      <section class="list-wrapper">
+
+        <section class="list-section">
+
+        </section>
+      </section>
+
 
     </main>
 

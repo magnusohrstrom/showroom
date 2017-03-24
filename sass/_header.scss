@@ -1,13 +1,14 @@
 header {
   background:white;
   position:fixed;
-  width: 100%;
+  width: 98%;
   height: 2.4em;
   z-index: 1000;
   @include flexbox();
   @include flex-direction(row);
   @include align-items(center);
   @include justify-content(space-between);
+
 
   & nav {
     @include flexbox();
@@ -16,10 +17,12 @@ header {
     @include justify-content(flex-end);
     width: 70%;
     & a {
-      margin:0.2em 3% 0 3%;
+      margin:0.2em 3% 0 6%;
       //margin-right: 3%;
       color:$wall-grey;
-      font-size: 1.5em;
+      font-size: 1.2em;
+      //font-family: 'Open-Sans', sans-serif;
+      //font-style: italic;
     }
   }
 }
@@ -29,4 +32,12 @@ header {
   font-size: 2em;
 
   color:$wall-grey;
+}
+
+#header-triangle{
+  position:fixed;
+  border-color: white;
+  top:0;
+  z-index:100;
+  left:-1em;
 }

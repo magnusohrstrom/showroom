@@ -1,6 +1,7 @@
 @import "varmix";
 @import "header";
 @import "forms";
+@import "tours";
 
 body {
   width: 100%;
@@ -71,35 +72,47 @@ main {
   @include flex-direction(column);
   @include justify-content(flex-start);
   @include align-items(center);
-  border:1em solid $wall-grey;
+  //border: 0.5em solid $wall-grey;
+  min-height: 0em;
 
 }
 
 .list-section {
+  position: relative;
   @include flexbox();
   @include flex-direction(row);
   @include justify-content(flex-start);
   @include align-items(flex-start);
   flex-wrap: wrap;
   width: 80%;
-  min-height: 30em;
+
   background: white;
+  padding-top: 1em;
 
 
 
 }
 
 .main-figure {
-  width: 50%;
+  width: 40%;
+  //border: 1em solid white;
+  min-height: 100%;
+  height: 100%;
+  margin:4em;
+  @include transition(all 1s ease);
 
   & img {
+    @include animation(fade,2s,forwards,1);
+    opacity: 0;
     width: 100%;
+    margin:0;
+    @include transition(all 1s ease);
+
   }
 
 }
 
 .landing-h1 {
-
   opacity: 0;
   font-size: 3em;
   color:white;
@@ -110,7 +123,7 @@ main {
 .landing-h1.showroom-h1 {
   font-size: 6em;
   animation-delay: 2s;
-  color:coral;
+  color:yellow;
   margin:-1em 0 0 0;
 }
 
@@ -124,7 +137,17 @@ main {
   height: auto;
   width: 26%;
   background:white;
+  @include animation(fade,2s,forwards,1);
+  @include transition(all 0.6s ease);
+  opacity: 0;
+  cursor: pointer;
+  &.active {
 
+    @include transform(scale(2.3));
+
+
+    z-index: 1000;
+  }
   & h4 {
     font-size:1.3em;
     //margin: 1em;
@@ -143,6 +166,19 @@ main {
   }
 }
 
+.triangle {
+  position:absolute;
+  top:-2.2em;
+  left:-2.7em;
+  padding:0;
+  margin:0;
+  width: 0;
+  height: 0;
+  border-left: 10em solid transparent;
+  border-right: 3.5em solid transparent;
+  border-top: 6em solid salmon;
+  @include transform(rotate(149deg));
+}
 
 
 

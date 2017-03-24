@@ -58,7 +58,7 @@ const showRoom = (function(){
 
     //Tours ///////////////////////////////
     startTour: (query,artist,type,yearFrom,yearTo) => {
-      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=100&key=WU1Jjq7U&format=json&st=OBJECTS`)
+      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection/?key=WU1Jjq7U&format=json&st=OBJECTS`)
       .then(function(response){
         tempList = response;
         console.log(tempList);
@@ -66,13 +66,8 @@ const showRoom = (function(){
       });
     },
 
-
     rembrandtTour: () => {
-      showRoom.startTour('','Rembrandt+Harmensz.+van+Rijn','schilder', '1200', '2000');
-    },
-
-    selfportraitsTour: () => {
-      showRoom.startTour('self portraits','','schilder','','');
+      showRoom.startTour('Rembrandt+Harmensz.+van+Rijn','schilder', '1200', '2000');
     },
 
     //Main search function/////////////////////////////////////////
@@ -85,7 +80,7 @@ const showRoom = (function(){
       let yearTo = document.getElementById('year-to').value;
       let s = '';
 
-      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=50&key=WU1Jjq7U&format=json&st=OBJECTS`)
+      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection/?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=10&key=WU1Jjq7U&format=json&st=OBJECTS`)
         .then(function(response){
           console.log(response);
           tempList = response.artObjects;
@@ -209,4 +204,4 @@ const showRoom = (function(){
 showRoom.init();
 
 //showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection/?q=rembrandt&type=painting&imgonly=True&ps=100&key=WU1Jjq7U&format=json`);
-showRoom.selfportraitsTour();
+showRoom.rembrandtTour();

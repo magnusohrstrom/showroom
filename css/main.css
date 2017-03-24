@@ -8,7 +8,7 @@
 header {
   background: white;
   position: fixed;
-  width: 100%;
+  width: 98%;
   height: 2.4em;
   z-index: 1000;
   display: -webkit-box;
@@ -50,16 +50,24 @@ header {
     -ms-flex-pack: flex-end;
     width: 70%; }
     header nav a {
-      margin: 0.2em 3% 0 3%;
+      margin: 0.2em 3% 0 6%;
       color: #292D3F;
-      font-size: 1.5em; }
+      font-size: 1.2em; }
 
 #title {
   margin: 0.2em 0 0 2.2%;
   font-size: 2em;
   color: #292D3F; }
 
+#header-triangle {
+  position: fixed;
+  border-color: white;
+  top: 0;
+  z-index: 100;
+  left: -1em; }
+
 .form-section {
+  position: relative;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -69,16 +77,18 @@ header {
   -moz-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-  -ms-flex-pack: flex-start;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
   -webkit-align-items: flex-start;
   -moz-align-items: flex-start;
   -ms-align-items: flex-start;
   align-items: flex-start;
-  width: 98%; }
+  width: 98%;
+  border: 0.5em solid salmon;
+  margin-bottom: 3em; }
 
 .search-form {
   display: -webkit-box;
@@ -100,9 +110,10 @@ header {
   justify-content: space-between;
   -ms-flex-pack: space-between;
   height: auto;
-  margin: 0 0 0 1em;
+  margin: 1em 0 2em 0;
   background: white;
-  width: 20%; }
+  width: 20%;
+  padding: 1em; }
   .search-form button {
     height: 2em;
     width: 30%;
@@ -239,6 +250,140 @@ select {
 .form-module.search-module {
   width: 100%; }
 
+.hero-section.tours-section {
+  background: url("../images/tours.jpg");
+  background-size: contain;
+  background-repeat: no-repeat; }
+
+.tours-h2 {
+  font-size: 4rem;
+  color: red;
+  background: white; }
+
+.tours-h3 {
+  font-size: 3rem;
+  color: red;
+  background: white; }
+
+.list-wrapper.tours-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap; }
+
+.form-section.tours-section {
+  border-color: transparent;
+  height: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-pack: flex-start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap; }
+
+.tours-form button {
+  width: auto; }
+
+.tours-square {
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  height: 25em;
+  width: 25em;
+  margin-left: 5%;
+  -webkit-transition: all 4s ease;
+  -moz-transition: all 4s ease;
+  -ms-transition: all 4s ease;
+  -o-transition: all 4s ease;
+  transition: all 4s ease; }
+  .tours-square h2 {
+    color: black;
+    font-size: 2em; }
+  .tours-square img {
+    height: 100%;
+    width: 100%;
+    margin: 0; }
+
+.tour-name {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  margin: 0 30% 0% 0;
+  background: yellow; }
+
+#rembrandt {
+  background-image: url("https://lh6.ggpht.com/KCJH70MgtJwLkrPCUCw7yYt9APS0WxkfFnt8cbiqkUPb6qtDPxslTcLd-mG00-pxOdO9PbMasXDIH1RuzoT6BrH7poo=s0"); }
+
+#selfportraits {
+  background-image: url("http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0"); }
+
+#animals {
+  background-image: url("http://lh4.ggpht.com/XVSITSSFzZEdNM1SpHbJF12MqBvW3KTL2qjNta1-KMiOVd3s-p-LiQ2sXHsgRAs3GeMpiin_TwvLi9jpIySt1vLDdA=s0"); }
+
 body {
   width: 100%;
   overflow-x: hidden;
@@ -347,9 +492,10 @@ main {
   -moz-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  border: 1em solid #292D3F; }
+  min-height: 0em; }
 
 .list-section {
+  position: relative;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -370,13 +516,49 @@ main {
   align-items: flex-start;
   flex-wrap: wrap;
   width: 80%;
-  min-height: 30em;
-  background: white; }
+  background: white;
+  padding-top: 1em; }
 
 .main-figure {
-  width: 50%; }
+  width: 40%;
+  min-height: 100%;
+  height: 100%;
+  margin: 4em;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease; }
   .main-figure img {
-    width: 100%; }
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+    /* forward prevents the animation from restarting! */
+    -moz-animation-name: fade;
+    -moz-animation-duration: 2s;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-name: fade;
+    -ms-animation-duration: 2s;
+    -ms-animation-fill-mode: forwards;
+    -ms-animation-iteration-count: 1;
+    -o-animation-name: fade;
+    -o-animation-duration: 2s;
+    -o-animation-fill-mode: forwards;
+    -o-animation-iteration-count: 1;
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    opacity: 0;
+    width: 100%;
+    margin: 0;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease; }
 
 .landing-h1 {
   opacity: 0;
@@ -413,7 +595,7 @@ main {
 .landing-h1.showroom-h1 {
   font-size: 6em;
   animation-delay: 2s;
-  color: coral;
+  color: yellow;
   margin: -1em 0 0 0; }
 
 .landing-h1.browse-h1 {
@@ -424,7 +606,42 @@ main {
 .list-figure {
   height: auto;
   width: 26%;
-  background: white; }
+  background: white;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  /* forward prevents the animation from restarting! */
+  -moz-animation-name: fade;
+  -moz-animation-duration: 2s;
+  -moz-animation-fill-mode: forwards;
+  -moz-animation-iteration-count: 1;
+  -ms-animation-name: fade;
+  -ms-animation-duration: 2s;
+  -ms-animation-fill-mode: forwards;
+  -ms-animation-iteration-count: 1;
+  -o-animation-name: fade;
+  -o-animation-duration: 2s;
+  -o-animation-fill-mode: forwards;
+  -o-animation-iteration-count: 1;
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  opacity: 0;
+  cursor: pointer; }
+  .list-figure.active {
+    -webkit-transform: scale(2.3);
+    -moz-transform: scale(2.3);
+    -ms-transform: scale(2.3);
+    -o-transform: scale(2.3);
+    transform: scale(2.3);
+    z-index: 1000; }
   .list-figure h4 {
     font-size: 1.3em; }
   .list-figure h4 {
@@ -436,6 +653,23 @@ main {
     max-width: 100%;
     margin: 0em;
     background-size: contain; }
+
+.triangle {
+  position: absolute;
+  top: -2.2em;
+  left: -2.7em;
+  padding: 0;
+  margin: 0;
+  width: 0;
+  height: 0;
+  border-left: 10em solid transparent;
+  border-right: 3.5em solid transparent;
+  border-top: 6em solid salmon;
+  -webkit-transform: rotate(149deg);
+  -moz-transform: rotate(149deg);
+  -ms-transform: rotate(149deg);
+  -o-transform: rotate(149deg);
+  transform: rotate(149deg); }
 
 @-webkit-keyframes fade {
   from {

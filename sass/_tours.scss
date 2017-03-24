@@ -1,0 +1,91 @@
+.hero-section.tours-section {
+  background:url('../images/tours.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tours-h2 {
+  font-size: 4rem;
+  color:red;
+  background: white;
+}
+
+.tours-h3 {
+  font-size: 3rem;
+  color:red;
+  background: white;
+}
+
+.list-wrapper.tours-wrapper {
+  @include flexbox();
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include align-items(flex-start);
+  flex-wrap:wrap;
+}
+
+.form-section.tours-section {
+  border-color: transparent;
+  height: auto;
+  @include flexbox();
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include align-items(flex-start);
+  flex-wrap: wrap;
+
+}
+
+.tours-form{
+  & button {
+    width: auto;
+  }
+}
+
+.tours-square {
+  position: relative;
+  @include flexbox();
+  @include justify-content(center);
+  @include flex-direction(column);
+  @include align-items(center);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  height: 25em;
+  width: 25em;
+  margin-left: 5%;
+  @include transition(all 4s ease);
+  & h2 {
+    color:black;
+    font-size:2em;
+  }
+
+  & img {
+
+    height: 100%;
+    width: 100%;
+    margin:0;
+  }
+
+  &:hover{}
+}
+
+.tour-name {
+  @include flexbox();
+  @include justify-content(center);
+  @include flex-direction(column);
+  @include align-items(center);
+  text-align: center;
+  width: 80%;
+  margin: 0 30% 0% 0;
+  background:yellow;
+}
+
+#rembrandt{
+  background-image: url('https://lh6.ggpht.com/KCJH70MgtJwLkrPCUCw7yYt9APS0WxkfFnt8cbiqkUPb6qtDPxslTcLd-mG00-pxOdO9PbMasXDIH1RuzoT6BrH7poo=s0');
+}
+#selfportraits {
+  background-image: url('http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0');
+}
+#animals {
+  background-image: url('http://lh4.ggpht.com/XVSITSSFzZEdNM1SpHbJF12MqBvW3KTL2qjNta1-KMiOVd3s-p-LiQ2sXHsgRAs3GeMpiin_TwvLi9jpIySt1vLDdA=s0');
+}
