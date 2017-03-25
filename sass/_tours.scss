@@ -53,8 +53,11 @@
   height: 25em;
   width: 25em;
   margin-left: 5%;
+  margin:6% 0 3% 6%;
+
+
   @include transition(all 4s ease);
-  & h2 {
+  & a {
     color:black;
     font-size:2em;
   }
@@ -76,8 +79,30 @@
   @include align-items(center);
   text-align: center;
   width: 80%;
-  margin: 0 30% 0% 0;
+  margin: 60% 30% 0% 0;
   background:yellow;
+  //border: 0.5em solid black;
+}
+.tours-h1 {
+  margin: 2.5em;
+  background:yellow;
+}
+
+.tours-article {
+  height: auto;
+  width: 35%;
+  background: yellow;
+  color:black;
+  padding:2em;
+  min-height: 100%;
+
+
+  & p {
+    margin-right: 3em;
+  }
+  & h2 {
+
+  }
 }
 
 #rembrandt{

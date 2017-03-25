@@ -52,51 +52,66 @@ const showRoom = (function(){
           console.log(res);
         })
           .fail(()=>{
-            console.log('error!');
+            console.log('though shit!');
           });
     },
 
     //Tours ///////////////////////////////
-    startTour: (query,artist,type,yearFrom,yearTo) => {
-      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=100&key=WU1Jjq7U&format=json&st=OBJECTS`)
-      .then(function(response){
-        tempList = response;
-        console.log(tempList);
-        showRoom.appendResponseToInterface(tempList,1);
+    startTour: (query,artist,type,yearFrom,yearTo,listIndex) => {
+      //showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=100&key=WU1Jjq7U&format=json&st=OBJECTS`)
+      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=50&key=WU1Jjq7U&format=json&st=OBJECTS`)
+      .done(function(response){
+        tempList = response.artObjects;
+        showRoom.appendResponseToInterface(tempList,listIndex);
+        showRoom.appendImgToMainFigure(tempList[0].webImage.url,0);
       });
     },
 
 
     rembrandtTour: () => {
-      showRoom.startTour('','Rembrandt+Harmensz.+van+Rijn','schilder', '1200', '2000');
+      showRoom.startTour('','Rembrandt+Harmensz.+van+Rijn','schilder', '', '',0);
     },
 
     selfportraitsTour: () => {
-      showRoom.startTour('self portraits','','schilder','','');
+      showRoom.startTour('self portraits','','schilder','','',0);
+    },
+
+    animalsTour: () => {
+      showRoom.startTour('animals','','schilder','','',0);
+    },
+
+    masterPeicesTour: () => {
+      showRoom.startTour('masterpeice','','schilder','','',0);
+    },
+
+    shungaTour: () => {
+      showRoom.startTour('intercourse','','schilder','','',0)
     },
 
     //Main search function/////////////////////////////////////////
     getFromSearchQuery: function()  {
 
       let query = document.getElementsByClassName('search-input')[0].value;
-      let artist = document.getElementById('artist-select')[1].value;
+      let artist = document.getElementById('artist-select').value;
       let type = document.getElementById('type-select').value;
       let yearFrom = document.getElementById('year-from').value;
       let yearTo = document.getElementById('year-to').value;
       let s = '';
 
-      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=50&key=WU1Jjq7U&format=json&st=OBJECTS`)
-        .then(function(response){
-          console.log(response);
+      //showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=50&key=WU1Jjq7U&format=json&st=OBJECTS`)
+        //.then(function(response){
+          showRoom.startTour(query,artist,type,yearFrom,yearTo,0);
+          /*
+  console.log(response);
           tempList = response.artObjects;
           //showRoom.checkArtistSpecified(tempList,artist);
           showRoom.appendResponseToInterface(tempList,1);
-          console.log(tempList);
-          //showRoom.createNewArtWorkFromResponseList(tempList);
-        }).done(function(){
-          showRoom.appendImgToMainFigure(tempList);
-          console.log(tempList);
-          });
+          */
+
+
+
+
+
 
     },
 
@@ -111,6 +126,7 @@ const showRoom = (function(){
 
     //Appends search-result-respond to html-interface.
     appendResponseToInterface:function(list, index) {
+      console.log(list);
       let Html = '';
       let section = document.getElementsByClassName('list-section')[index];
       for (let i = 0; i < list.length; i++) {
@@ -124,6 +140,10 @@ const showRoom = (function(){
       }
       section.innerHTML = Html;
       showRoom.addEvents();
+    },
+    testApi:()=>{
+      showRoom.getShort('https://www.rijksmuseum.nl/api/en/collection/RP-T-1979-45?key=WU1Jjq7U&format=json');
+
     },
 
     addEvents: function(){
@@ -143,9 +163,35 @@ const showRoom = (function(){
       this.classList.toggle('active');
     },
 
-    appendImgToMainFigure: (index) => {
+    appendImgToMainFigure: (url,index) => {
       let mainImg = document.getElementsByClassName('main-img')[index];
         mainImg.setAttribute('src', url);
+      let mainFigure =  mainImg.parentNode;
+      console.log(mainFigure);
+    },
+
+    changeMainImgOnClickForward: () => {
+      let img = document.getElementsByClassName('main-img')[0].src;
+      console.log(img);
+      console.log(tempList[0].webImage.url);
+
+      for (let i = 0; i < tempList.length; i++) {
+        if(tempList[i].webImage.url===img){
+          showRoom.appendImgToMainFigure(tempList[i+1].webImage.url,0);
+        }
+      }
+    },
+
+    changeMainImgOnClickBack: () => {
+      let img = document.getElementsByClassName('main-img')[0].src;
+      console.log(img);
+      console.log(tempList[0].webImage.url);
+
+      for (let i = 0; i < tempList.length; i++) {
+        if(tempList[i].webImage.url===img){
+          showRoom.appendImgToMainFigure(tempList[i-1].webImage.url,0);
+        }
+      }
     },
 
     getListOfObjectNumbers:(response) => {
@@ -198,10 +244,19 @@ const showRoom = (function(){
 },
     //funciton that sets eventlisteners on app initiation.
     init: function() {
-      document.getElementsByClassName('tours-square')[0].addEventListener('click',showRoom.rembrandtTour);
-      //document.getElementsByClassName('search-input')[0].addEventListener('input',showRoom.getFromSearchQuery);
-      document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.getFromSearchQuery);
-      //document.getElementsByClassName('search-input')[0].addEventListener('onkeypress','return showRoom.enterKey(event);');
+      document.getElementById('rembrandt-main')!==null ? showRoom.rembrandtTour():{};
+      document.getElementById('selfportraits-main')!==null ? showRoom.selfportraitsTour():{};
+      document.getElementById('animals-main')!==null ? showRoom.animalsTour():{};
+      document.getElementById('masterpieces-main')!== null ? showRoom.masterPiecesTour():{};
+      document.getElementById('murder-main')!== null ? showRoom.murderTour():{};
+      document.getElementById('masterpieces-main')!== null ? showRoom.masterPiecesTour():{};
+
+      document.getElementsByClassName('arrow-right')[0].addEventListener('click', showRoom.changeMainImgOnClickForward);
+      document.getElementsByClassName('arrow-left')[0].addEventListener('click', showRoom.changeMainImgOnClickBack);
+      document.getElementsByClassName('search-button')[0] !== undefined ?
+        document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.getFromSearchQuery):{};
+
+
     }
 };//end showRoom.
 })();
@@ -209,4 +264,4 @@ const showRoom = (function(){
 showRoom.init();
 
 //showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection/?q=rembrandt&type=painting&imgonly=True&ps=100&key=WU1Jjq7U&format=json`);
-showRoom.selfportraitsTour();
+showRoom.testApi();

@@ -6,7 +6,8 @@
   @include justify-content(center);
   @include align-items(flex-start);
   width: 98%;
-  border:0.5em solid salmon;
+  flex-wrap: wrap;
+  //border:0.5em solid salmon;
   margin-bottom:3em;
 }
 
