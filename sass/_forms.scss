@@ -29,7 +29,7 @@
   @include justify-content(space-between);
   //border:1em solid $wall-grey;
   height: auto;
-  margin:1em 0 2em 0;
+  margin:-2em 0 2em 0;
   background: white;
   width: 20em;
   padding: 1em;
@@ -65,7 +65,7 @@
     }
   };
   @include breakpoint(medium){
-    width: 30em;
+    width: 20em;
   };
 }
 

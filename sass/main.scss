@@ -107,7 +107,7 @@ main {
   //border: 1em solid white;
   min-height: 100%;
   height: 100%;
-  margin:4em;
+  margin:5em 4em;
   @include transition(all 1s ease);
 
   & img {
@@ -116,6 +116,12 @@ main {
     width: 80%;
     //margin:0 0 0 1em;
     @include transition(all 1s ease);
+    &.tour-img {
+          width: 100%;
+      @include breakpoint(large){
+          width: 100%;
+      };
+    }
   }
 
   &.tours-figure {
@@ -148,7 +154,6 @@ main {
     @include breakpoint(smedium){
       width: 20em;
     };
-
   }
 }
 
@@ -227,7 +232,7 @@ main {
   font-size: 3em;
   color:white;
   animation-delay: 1.6s;
-    word-wrap: break-word;
+  word-wrap: break-word;
   @include animation(fade,2s,forwards,1);
   @include transition(all 2s ease);
   @include breakpoint(xxlarge){
@@ -310,6 +315,7 @@ main {
   visibility: hidden;
   position: fixed;
   top:50%;
+  left:50%;
   height: 3em;
   z-index: 1000;
   &.active {
