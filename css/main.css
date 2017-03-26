@@ -53,6 +53,9 @@ header {
       margin: 0.2em 3% 0 6%;
       color: #292D3F;
       font-size: 1.2em; }
+    @media (max-width: 464px) {
+      header nav {
+        display: none; } }
 
 #title {
   margin: 0.2em 0 0 2.2%;
@@ -65,6 +68,58 @@ header {
   top: 0;
   z-index: 100;
   left: -1em; }
+
+footer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
+  width: 100%;
+  height: 2em;
+  background: #292D3F; }
+  @media (max-width: 464px) {
+    footer {
+      position: fixed;
+      bottom: 0; } }
+  footer nav {
+    display: none;
+    width: 100%;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: space-between; }
+    footer nav a {
+      color: white; }
+    @media (max-width: 464px) {
+      footer nav {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex; } }
 
 .form-section {
   position: relative;
@@ -166,7 +221,7 @@ select {
   width: 100%;
   border-radius: 0;
   border: none;
-  background-color: #292D3F;
+  background-color: #FF006C;
   color: white;
   overflow: hidden !important;
   font-size: 1em;
@@ -289,6 +344,7 @@ select {
   background: white; }
 
 .list-wrapper.tours-wrapper {
+  width: 100%;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -375,10 +431,9 @@ select {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: black;
-  height: 24em;
-  width: 24em;
-  margin-left: 5%;
-  margin: 0 1.5% 3% 1.5%;
+  height: 26em;
+  width: 26em;
+  margin: 0 0 3% 0;
   -webkit-transition: all 4s ease;
   -moz-transition: all 4s ease;
   -ms-transition: all 4s ease;
@@ -434,7 +489,18 @@ select {
   text-align: center;
   width: 80%;
   margin: 60% 30% 0% 0;
-  background: yellow; }
+  background: yellow;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  .tour-name:hover {
+    -webkit-transform: scale(1.04);
+    -moz-transform: scale(1.04);
+    -ms-transform: scale(1.04);
+    -o-transform: scale(1.04);
+    transform: scale(1.04); }
   .tour-name a {
     color: white; }
 
@@ -846,6 +912,7 @@ main {
   color: white;
   animation-delay: 1.6s;
   word-wrap: break-word;
+  max-width: 90vw;
   -webkit-animation-name: fade;
   -webkit-animation-duration: 2s;
   -webkit-animation-fill-mode: forwards;
@@ -884,6 +951,9 @@ main {
   animation-delay: 1s;
   color: #FF006C;
   margin: -1em 0 0 0; }
+  @media (max-width: 1100px) {
+    .landing-h1.showroom-h1 {
+      font-size: 4.5em; } }
   @media (max-width: 464px) {
     .landing-h1.showroom-h1 {
       font-size: 3.3em; } }
@@ -892,6 +962,10 @@ main {
   font-size: 2.2em;
   color: #292D3F;
   animation-delay: 1.8s; }
+  @media (max-width: 464px) {
+    .landing-h1.browse-h1 {
+      font-size: 1.3em;
+      margin-bottom: 1.8em; } }
 
 .list-figure {
   height: auto;
@@ -918,14 +992,20 @@ main {
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
-  -webkit-transition: all 0.6s ease;
-  -moz-transition: all 0.6s ease;
-  -ms-transition: all 0.6s ease;
-  -o-transition: all 0.6s ease;
-  transition: all 0.6s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
   opacity: 0;
   cursor: pointer;
   padding-bottom: 1em; }
+  .list-figure:hover {
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    transform: scale(1.03); }
   .list-figure.active {
     -webkit-transform: scale(1.6);
     -moz-transform: scale(1.6);

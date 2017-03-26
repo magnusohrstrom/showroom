@@ -17,6 +17,7 @@
 }
 
 .list-wrapper.tours-wrapper {
+  width: 100%;
   @include flexbox();
   @include flex-direction(row);
   @include justify-content(space-between);
@@ -57,10 +58,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: black;
-  height: 24em;
-  width: 24em;
-  margin-left: 5%;
-  margin:0 1.5% 3% 1.5%;
+  height: 26em;
+  width: 26em;
+
+  margin:0 0 3% 0;
   @include breakpoint(xlarge){
     width: 20em;
     height: 20em;
@@ -126,6 +127,11 @@
   width: 80%;
   margin: 60% 30% 0% 0;
   background:yellow;
+  @include transition(all 0.4s ease);
+  &:hover {
+    @include transform(scale(1.04));
+  }
+
   & a {
     color:white;
   }

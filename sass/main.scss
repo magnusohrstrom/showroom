@@ -233,6 +233,7 @@ main {
   color:white;
   animation-delay: 1.6s;
   word-wrap: break-word;
+  max-width: 90vw;
   @include animation(fade,2s,forwards,1);
   @include transition(all 2s ease);
   @include breakpoint(xxlarge){
@@ -248,16 +249,23 @@ main {
   animation-delay: 1s;
   color:$secondary-color;
   margin:-1em 0 0 0;
+
+  @include breakpoint(large){
+    font-size: 4.5em;
+  };
   @include breakpoint(small){
     font-size: 3.3em;
   };
-
 }
 
 .landing-h1.browse-h1{
   font-size: 2.2em;
   color: $wall-grey;
   animation-delay: 1.8s;
+  @include breakpoint(small){
+    font-size:1.3em;
+    margin-bottom: 1.8em;
+  };
 
 }
 
@@ -266,10 +274,13 @@ main {
   width: 24%;
   background:white;
   @include animation(fade,2s,forwards,1);
-  @include transition(all 0.6s ease);
+  @include transition(all 0.4s ease);
   opacity: 0;
   cursor: pointer;
   padding-bottom:1em;
+  &:hover {
+    @include transform(scale(1.03));
+  }
   &.active {
     //border:0.5em solid black;
     @include transform(scale(1.6));
