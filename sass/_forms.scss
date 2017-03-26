@@ -5,10 +5,21 @@
   @include flex-direction(row);
   @include justify-content(center);
   @include align-items(flex-start);
-  width: 98%;
+  width: 90%;
   flex-wrap: wrap;
   //border:0.5em solid salmon;
   margin-bottom:3em;
+  @include breakpoint(xlarge){
+    width: 100%;
+    //@include justify-content(space-between);
+  };
+  @include breakpoint(medium){
+    @include justify-content(space-between);
+  };
+  @include breakpoint(smedium){
+    @include flex-direction(column);
+    @include align-items(center);
+  };
 }
 
 .search-form {
@@ -20,7 +31,7 @@
   height: auto;
   margin:1em 0 2em 0;
   background: white;
-  width: 20%;
+  width: 20em;
   padding: 1em;
   & button {
     height: 2em;
@@ -52,6 +63,9 @@
     &:active{
 
     }
+  };
+  @include breakpoint(medium){
+    width: 30em;
   };
 }
 

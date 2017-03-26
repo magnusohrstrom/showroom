@@ -57,6 +57,9 @@ main {
   width: 100%;
   height:860px;
   min-width: 70em;
+  @include breakpoint(xxlarge){
+    height: 40em;
+  };
 }
 
 .hero-img {
@@ -88,7 +91,9 @@ main {
   width: 90%;
   background: white;
   padding-top: 1em;
-
+  @include breakpoint(xlarge){
+    width: 100%;
+  };
 
 
 }
@@ -108,14 +113,29 @@ main {
   & img {
     @include animation(fade,2s,forwards,1);
     opacity: 0;
-    width: 100%;
-    margin:0 1em;
+    width: 80%;
+    //margin:0 0 0 1em;
     @include transition(all 1s ease);
   }
 
   &.tours-figure {
-    margin:0 4em;
+    margin:0 0 0 4em;
   }
+  @include breakpoint(xxlarge){
+  //  width: 30%;
+  };
+  @include breakpoint(xlarge){
+  //  width: 30%;
+    margin:0;
+  };
+
+  @include breakpoint(medium){
+    width: 48%;
+  };
+
+  @include breakpoint(small){
+    width: 100%;
+  };
 }
 
 .main-img {
@@ -123,6 +143,12 @@ main {
   opacity: 0;
   &.fade {
     @include animation(fade,2s,forwards,1);
+  }
+  &.search-img {
+    @include breakpoint(smedium){
+      width: 20em;
+    };
+
   }
 }
 
@@ -136,6 +162,9 @@ main {
     opacity: 0;
     @include animation(fade,1s,forwards,1);
     background: yellow;
+  }
+  & a {
+    color:black;
   }
 }
 .tours-aside {
@@ -156,17 +185,6 @@ main {
     margin: 0;
   }
 }
-
-
-.aside {
-  height: 40em;
-  width: 40em;
-  color:green;
-  background: green;
-}
-
-
-
 
 .arrow-right {
   border-top: 1.5em solid transparent;
@@ -193,44 +211,63 @@ main {
   cursor: pointer;
   @include transition(all 0.4s ease);
   &:hover{
-    @include transform(scale(1.4));
+    @include transform(scale(1.2));
   }
+}
+
+.landing-container {
+  width: 90%;
+  @include flexbox();
+  @include justify-content(center);
+  word-wrap: break-word;
 }
 
 .landing-h1 {
   opacity: 0;
   font-size: 3em;
   color:white;
-  animation-delay: 2.6s;
+  animation-delay: 1.6s;
+    word-wrap: break-word;
   @include animation(fade,2s,forwards,1);
   @include transition(all 2s ease);
+  @include breakpoint(xxlarge){
+    font-size: 2.2em;
+  };
+  @include breakpoint(large){
+    font-size: 1.5em;
+  };
+
 }
 .landing-h1.showroom-h1 {
   font-size: 6em;
-  animation-delay: 2s;
-  color:yellow;
+  animation-delay: 1s;
+  color:$secondary-color;
   margin:-1em 0 0 0;
+  @include breakpoint(small){
+    font-size: 3.3em;
+  };
+
 }
 
 .landing-h1.browse-h1{
   font-size: 2.2em;
   color: $wall-grey;
-  animation-delay: 2.8s;
+  animation-delay: 1.8s;
+
 }
 
 .list-figure {
   height: auto;
-  width: 26%;
+  width: 24%;
   background:white;
   @include animation(fade,2s,forwards,1);
   @include transition(all 0.6s ease);
   opacity: 0;
   cursor: pointer;
+  padding-bottom:1em;
   &.active {
     //border:0.5em solid black;
-    @include transform(scale(2.3));
-
-
+    @include transform(scale(1.6));
     z-index: 1000;
   }
   & h4 {
@@ -249,20 +286,35 @@ main {
     margin:0em;
     background-size: contain;
   }
+  & a {color:black;}
+
+  @include breakpoint(xxlarge){
+    width: 30%;
+  };
+  @include breakpoint(xlarge){
+    width: 30%;
+    margin:0;
+  };
+
+  @include breakpoint(medium){
+    width: 48%;
+  };
+
+  @include breakpoint(small){
+    width: 100%;
+  };
+
 }
 
-.triangle {
-  position:absolute;
-  top:-2.2em;
-  left:-2.7em;
-  padding:0;
-  margin:0;
-  width: 0;
-  height: 0;
-  border-left: 10em solid transparent;
-  border-right: 3.5em solid transparent;
-  border-top: 6em solid salmon;
-  @include transform(rotate(149deg));
+.loading-img {
+  visibility: hidden;
+  position: fixed;
+  top:50%;
+  height: 3em;
+  z-index: 1000;
+  &.active {
+    visibility: visible;
+  }
 }
 
 

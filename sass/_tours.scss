@@ -19,9 +19,16 @@
 .list-wrapper.tours-wrapper {
   @include flexbox();
   @include flex-direction(row);
-  @include justify-content(flex-start);
+  @include justify-content(space-between);
   @include align-items(flex-start);
   flex-wrap:wrap;
+  @include breakpoint(large){
+    @include justify-content(space-around);
+  };
+  @include breakpoint(smedium){
+    @include align-items(center);
+    @include flex-direction(column);
+  };
 }
 
 .form-section.tours-section {
@@ -50,11 +57,14 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: black;
-  height: 25em;
-  width: 25em;
+  height: 24em;
+  width: 24em;
   margin-left: 5%;
-  margin:6% 0 3% 6%;
-
+  margin:0 1.5% 3% 1.5%;
+  @include breakpoint(xlarge){
+    width: 20em;
+    height: 20em;
+  };
 
   @include transition(all 4s ease);
   & a {
@@ -68,8 +78,43 @@
     width: 100%;
     margin:0;
   }
+  &:nth-child(1){
+    & a {
+      color:black;
+    }
+  }
+  &:nth-child(2){
+    & div {
+      background-color: $secondary-color;
+    }
+  }
+  &:nth-child(3){
+    & div {
+      background-color: yellow;
+      & a {
+        color:black;
+      }
+    }
+  }
+  &:nth-child(4){
+    & div {
+      background-color: $secondary-color;
+    }
+  }
+  &:nth-child(5){
+    & div {
+      background-color: yellow;
+      & a {
+        color:black;
+      }
+    }
+  }
+  &:nth-child(6){
+    & div {
+      background-color: $secondary-color;
 
-  &:hover{}
+    }
+  }
 }
 
 .tour-name {
@@ -81,7 +126,9 @@
   width: 80%;
   margin: 60% 30% 0% 0;
   background:yellow;
-  //border: 0.5em solid black;
+  & a {
+    color:white;
+  }
 }
 .tours-h1 {
   margin: 2.5em;
@@ -95,7 +142,7 @@
   background: yellow;
   color:black;
   padding:2em;
-  min-height: 100%;
+  min-height: 28em;
 
 
   & p {
@@ -104,14 +151,21 @@
   & h2 {
 
   }
+
+  @include breakpoint(smedium){
+    width: 100%;
+  };
 }
 
 #rembrandt{
-  background-image: url('https://lh6.ggpht.com/KCJH70MgtJwLkrPCUCw7yYt9APS0WxkfFnt8cbiqkUPb6qtDPxslTcLd-mG00-pxOdO9PbMasXDIH1RuzoT6BrH7poo=s0');
+  background-image: url('../images/rembrandt.jpg');
 }
 #selfportraits {
-  background-image: url('http://lh4.ggpht.com/RKAJ3z2mOcw83Ju0a7NIp71oUoJbVWJQzxwki5PSERissvWIrELCuxxGZ12U0PeAnf6WLkRCzpFdvjweUBjlcr2I4dl_=s0');
+  background-image: url('../images/selfportraits.jpg');
 }
 #animals {
-  background-image: url('http://lh4.ggpht.com/XVSITSSFzZEdNM1SpHbJF12MqBvW3KTL2qjNta1-KMiOVd3s-p-LiQ2sXHsgRAs3GeMpiin_TwvLi9jpIySt1vLDdA=s0');
+  background-image: url('../images/animals.jpg');
+}
+#murder {
+  background-image: url('../images/murder.jpg');
 }

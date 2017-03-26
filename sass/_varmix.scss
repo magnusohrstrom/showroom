@@ -1,6 +1,6 @@
 // VARIABLES AND MIXINS
 //COLORS
-
+$secondary-color:#FF006C;
 $wall-grey:#292D3F;
 //FONTS
 
@@ -11,7 +11,7 @@ $art-font:'Muli', sans-serif;
 
 /*------------- Breakpoints mixin*/
 
-$breakpoints: ( 'xxsmall': ( max-width: 360px),'xsmall': ( max-width: 375px), 'small': ( max-width: 464px),'smedium': ( max-width: 560px ), 'medium': ( max-width: 854px), 'large': ( max-width: 1100px), 'xlarge': ( max-width: 1300px), 'xxlarge': ( max-width:1500px));
+$breakpoints: ( 'xxsmall': ( max-width: 360px),'xsmall': ( max-width: 375px), 'small': ( max-width: 464px),'smedium': ( max-width: 785px ), 'medium': ( max-width: 900px), 'large': ( max-width: 1100px), 'xlarge': ( max-width: 1300px), 'xxlarge': ( max-width:1440px));
 @mixin breakpoint($name) {
     @if map-has-key($breakpoints, $name) {
         @media #{inspect(map-get($breakpoints, $name))} {

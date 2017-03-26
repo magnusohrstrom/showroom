@@ -2,8 +2,9 @@
 const showRoom = (function(){
   let tempList = [];
   let fullList = [];
-  let test = [];
 
+
+  /*
   const ArtWork = {
     create: function (title, long, maker, url){
       var newArtWork = Object.create(this);
@@ -18,11 +19,14 @@ const showRoom = (function(){
       console.log(this.url);
     }
 
-  };
+  };  */
+
+
 
   return {
-    ArtWork: ArtWork,
+    //ArtWork: ArtWork,
 
+    /*
     createNewArtWorkFromResponseList: function(list) {
           for (var i = 0; i < list.length; i++) {
             var title = list[i].title;
@@ -40,9 +44,12 @@ const showRoom = (function(){
 
     createListOfObjectsFromFactory: function(artwork){
       fullList.push(artwork);
-    },
+    },    */
+
+
     //Get function for all get requests.
     getShort: (url) => {
+      document.getElementsByClassName('loading-img')[0].classList.toggle('active');
       return $.ajax({
         method: 'GET',
         dataType:'json',
@@ -50,15 +57,18 @@ const showRoom = (function(){
       })
         .always(function(res){
           console.log(res);
+          document.getElementsByClassName('loading-img')[0].classList.toggle('active');
         })
-          .fail(()=>{
-            console.log('though shit!');
+          .fail((error)=>{
+            console.log(error);
+            document.getElementsByClassName('main-figure-text-container')[0].innerHTML = `<h2>Oops! An error occured while trying to load content. </h2>`;
           });
+
     },
 
     //Tours ///////////////////////////////
     startTour: (query,artist,type,yearFrom,yearTo,listIndex) => {
-      //showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=100&key=WU1Jjq7U&format=json&st=OBJECTS`)
+      //showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=100&key=q7U&format=json&st=OBJECTS`)
       showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=50&key=WU1Jjq7U&format=json&st=OBJECTS`)
       .done(function(response){
         tempList = response.artObjects;
@@ -67,7 +77,6 @@ const showRoom = (function(){
         showRoom.appendTextToMainTextBox(tempList[0]);
       });
     },
-
 
     rembrandtTour: () => {
       showRoom.startTour('','Rembrandt+Harmensz.+van+Rijn','schilder', '', '',0);
@@ -105,13 +114,16 @@ const showRoom = (function(){
           showRoom.startTour(query,artist,type,yearFrom,yearTo,0);
     },
 
+    /*
     checkArtistSpecified: (list, artist) => {
      tempList = list.filter((elem)=>{
         return elem.principalOrFirstMaker === artist;
       });
       console.log('hejhej'+tempList);
       return tempList;
-    },
+    },    */
+
+
 
     //Appends search-result-respond to html-interface.
     appendResponseToInterface:function(list, index) {
@@ -121,19 +133,23 @@ const showRoom = (function(){
       for (let i = 0; i < list.length; i++) {
         if(list[i].webImage !== null ){
           Html += `<figure class="list-figure">
-                          <img src="${list[i].webImage.url}">
+                          <img class="list-img" src="${list[i].webImage.url}">
                           <h4>${list[i].longTitle}</h4>
                           <p>${list[i].principalOrFirstMaker}</p>
+                          <a target="_blank" href="${list[i].webImage.url}">full-sized image</a>
                         </figure>`;
         }
       }
       section.innerHTML = Html;
       showRoom.addEvents();
     },
-    testApi:()=>{
+    /*
+  testApi:()=>{
       showRoom.getShort('https://www.rijksmuseum.nl/api/en/collection/RP-T-1979-45?key=WU1Jjq7U&format=json');
 
-    },
+    },  */
+
+
 
     addEvents: function(){
     let listFigure = document.getElementsByClassName('list-figure');
@@ -159,7 +175,7 @@ const showRoom = (function(){
 
     appendTextToMainTextBox: (obj) => {
       let mainTextBox = document.getElementsByClassName('main-figure-text-container')[0];
-        mainTextBox.innerHTML = `<h2>${obj.longTitle}</h2><p>${obj.principalOrFirstMaker}</p>`;
+        mainTextBox.innerHTML = `<h2>${obj.longTitle}</h2><p>${obj.principalOrFirstMaker}</p><a target="_blank" href="${obj.webImage.url}">Full-sized image</a>`;
     },
 
     changeMainImgOnClickForward: () => {
