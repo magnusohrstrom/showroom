@@ -381,6 +381,7 @@ select {
   background: yellow; }
 
 .tours-article {
+  max-width: 30em;
   height: auto;
   width: 35%;
   background: yellow;
@@ -519,17 +520,17 @@ main {
   -moz-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
-  -ms-flex-pack: flex-start;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
   -webkit-align-items: flex-start;
   -moz-align-items: flex-start;
   -ms-align-items: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  width: 80%;
+  width: 90%;
   background: white;
   padding-top: 1em; }
 
@@ -593,22 +594,133 @@ main {
     transition: all 1s ease; }
   .main-figure.tours-figure {
     margin: 0 4em; }
-  .main-figure .aside {
-    height: 10em;
-    width: 10em;
-    color: green; }
+
+.main-img {
+  cursor: pointer;
+  opacity: 0; }
+  .main-img.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+    /* forward prevents the animation from restarting! */
+    -moz-animation-name: fade;
+    -moz-animation-duration: 2s;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-name: fade;
+    -ms-animation-duration: 2s;
+    -ms-animation-fill-mode: forwards;
+    -ms-animation-iteration-count: 1;
+    -o-animation-name: fade;
+    -o-animation-duration: 2s;
+    -o-animation-fill-mode: forwards;
+    -o-animation-iteration-count: 1;
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1; }
+
+.main-figure-text-container {
+  margin-top: 2em;
+  height: auto;
+  width: 100%; }
+  .main-figure-text-container h2 {
+    opacity: 0;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+    /* forward prevents the animation from restarting! */
+    -moz-animation-name: fade;
+    -moz-animation-duration: 1s;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-name: fade;
+    -ms-animation-duration: 1s;
+    -ms-animation-fill-mode: forwards;
+    -ms-animation-iteration-count: 1;
+    -o-animation-name: fade;
+    -o-animation-duration: 1s;
+    -o-animation-fill-mode: forwards;
+    -o-animation-iteration-count: 1;
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    background: yellow; }
+
+.tours-aside {
+  width: 33%; }
+
+.main-img-box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  -ms-justify-content: flex-end;
+  justify-content: flex-end;
+  -ms-flex-pack: flex-end;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  width: 100%;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  /* forward prevents the animation from restarting! */
+  -moz-animation-name: fade;
+  -moz-animation-duration: 2s;
+  -moz-animation-fill-mode: forwards;
+  -moz-animation-iteration-count: 1;
+  -ms-animation-name: fade;
+  -ms-animation-duration: 2s;
+  -ms-animation-fill-mode: forwards;
+  -ms-animation-iteration-count: 1;
+  -o-animation-name: fade;
+  -o-animation-duration: 2s;
+  -o-animation-fill-mode: forwards;
+  -o-animation-iteration-count: 1;
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease; }
+  .main-img-box img {
+    width: 100%;
+    margin: 0; }
+
+.aside {
+  height: 40em;
+  width: 40em;
+  color: green;
+  background: green; }
 
 .arrow-right {
-  border-top: 2em solid transparent;
-  border-bottom: 2em solid transparent;
-  border-left: 2em solid #292D3F; }
+  border-top: 1.5em solid transparent;
+  border-bottom: 1.5em solid transparent;
+  border-left: 1.5em solid #292D3F; }
   .arrow-right:active {
     border-left-color: white; }
 
 .arrow-left {
-  border-top: 2em solid transparent;
-  border-bottom: 2em solid transparent;
-  border-right: 2em solid #292D3F; }
+  border-top: 1.5em solid transparent;
+  border-bottom: 1.5em solid transparent;
+  border-right: 1.5em solid #292D3F; }
   .arrow-left:active {
     border-right-color: white; }
 
@@ -622,11 +734,11 @@ main {
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease; }
   .arrow-right:hover, .arrow-left:hover {
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2); }
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    transform: scale(1.4); }
 
 .landing-h1 {
   opacity: 0;
