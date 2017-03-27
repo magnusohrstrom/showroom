@@ -215,6 +215,9 @@ footer {
   @media (max-width: 900px) {
     .search-form {
       width: 20em; } }
+  @media (max-width: 464px) {
+    .search-form {
+      width: 90%; } }
 
 select {
   height: 2rem;
@@ -782,6 +785,9 @@ main {
   @media (max-width: 785px) {
     .main-img.search-img {
       width: 20em; } }
+  @media (max-width: 375px) {
+    .main-img.search-img {
+      width: 80%; } }
 
 .main-figure-text-container {
   margin-top: 2em;

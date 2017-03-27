@@ -7,11 +7,9 @@
   @include align-items(flex-start);
   width: 90%;
   flex-wrap: wrap;
-  //border:0.5em solid salmon;
   margin-bottom:3em;
   @include breakpoint(xlarge){
     width: 100%;
-    //@include justify-content(space-between);
   };
   @include breakpoint(medium){
     @include justify-content(space-between);
@@ -66,6 +64,9 @@
   };
   @include breakpoint(medium){
     width: 20em;
+  };
+  @include breakpoint(small){
+    width: 90%;
   };
 }
 

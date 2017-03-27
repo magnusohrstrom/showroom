@@ -159,6 +159,10 @@ main {
     @include breakpoint(smedium){
       width: 20em;
     };
+    @include breakpoint(xsmall){
+      width: 80%;
+    };
+
   }
 }
 
