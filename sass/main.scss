@@ -273,7 +273,7 @@ main {
   animation-delay: 1.8s;
   @include breakpoint(small){
     font-size:1.3em;
-    margin-bottom: 1.8em;
+    margin: 1em;
   };
 
 }

@@ -217,7 +217,8 @@ footer {
       width: 20em; } }
   @media (max-width: 464px) {
     .search-form {
-      width: 90%; } }
+      width: 90%;
+      margin-top: 1em; } }
 
 select {
   height: 2rem;
@@ -977,7 +978,7 @@ main {
   @media (max-width: 464px) {
     .landing-h1.browse-h1 {
       font-size: 1.3em;
-      margin-bottom: 1.8em; } }
+      margin: 1em; } }
 
 .list-figure {
   height: auto;

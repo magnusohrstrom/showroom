@@ -143,13 +143,6 @@ const showRoom = (function(){
       section.innerHTML = Html;
       showRoom.addEvents();
     },
-    /*
-  testApi:()=>{
-      showRoom.getShort('https://www.rijksmuseum.nl/api/en/collection/RP-T-1979-45?key=WU1Jjq7U&format=json');
-
-    },  */
-
-
 
     addEvents: function(){
     let listFigure = document.getElementsByClassName('list-figure');
@@ -202,11 +195,6 @@ const showRoom = (function(){
       }
     },
 
-    getListOfObjectNumbers:(response) => {
-      let list = response.artObjects;
-      return tempList = list.map(function(val){ return val.objectNumber; });
-    },
-
     addEventListenerToFigure: function() {
       this.addEventListener('click', showRoom.appendImgToMainFigureOnClick);
     },
@@ -225,17 +213,14 @@ const showRoom = (function(){
       }
     },
     //TOURS AJAX https://www.rijksmuseum.nl/en/search?s=objecttype&p=1&ps=12&involvedMaker=Rembrandt%20Harmensz.%20van%20Rijn&st=OBJECTS&ii=0
-    logTempList: () =>{
 
-      console.log(fullList);
-    },
     //Enables click on search-button when enter-key is pressed.
     enterKey:(key) => {
       key=window.event;
       if(window.event.keyCode == 13){
         document.getElementsByClassName('search-button')[0].click();
         return false;
-  }
+      }
 
 },
     //funciton that sets eventlisteners on app initiation.

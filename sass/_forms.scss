@@ -67,6 +67,7 @@
   };
   @include breakpoint(small){
     width: 90%;
+    margin-top:1em;
   };
 }
 
