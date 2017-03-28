@@ -60,7 +60,7 @@
   background-color: black;
   height: 26em;
   width: 26em;
-
+  border-radius: 100%;
   margin:0 0 3% 0;
   @include breakpoint(xlarge){
     width: 20em;
@@ -150,12 +150,12 @@
 
 .tours-article {
   max-width: 30em;
-  height: auto;
-  width: 35%;
+  height: 20em;
+  width: 20em;
   background: yellow;
   color:black;
   padding:2em;
-
+  border-radius: 100%;
 
 
   & p {
@@ -165,8 +165,10 @@
 
   }
 
-  @include breakpoint(smedium){
-    width: 100%;
+  @include breakpoint(small){
+    height: 18em;
+    width: 18em;
+    margin-bottom: 1em;
   };
 }
 

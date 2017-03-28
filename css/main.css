@@ -440,6 +440,7 @@ select {
   background-color: black;
   height: 26em;
   width: 26em;
+  border-radius: 100%;
   margin: 0 0 3% 0;
   -webkit-transition: all 4s ease;
   -moz-transition: all 4s ease;
@@ -523,16 +524,19 @@ select {
 
 .tours-article {
   max-width: 30em;
-  height: auto;
-  width: 35%;
+  height: 20em;
+  width: 20em;
   background: yellow;
   color: black;
-  padding: 2em; }
+  padding: 2em;
+  border-radius: 100%; }
   .tours-article p {
     margin-right: 3em; }
-  @media (max-width: 785px) {
+  @media (max-width: 464px) {
     .tours-article {
-      width: 100%; } }
+      height: 18em;
+      width: 18em;
+      margin-bottom: 1em; } }
 
 #rembrandt {
   background-image: url("../images/rembrandt.jpg"); }
@@ -810,7 +814,7 @@ main {
       width: 80%; } }
 
 .main-figure-text-container {
-  margin-top: 0em;
+  margin-top: 0;
   height: auto;
   width: 80%; }
   .main-figure-text-container h2 {

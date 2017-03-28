@@ -116,9 +116,13 @@ main {
   @include transition(all 1s ease);
 
   & img {
+
     @include animation(fade,2s,forwards,1);
     opacity: 0;
     width: 80%;
+    &.tour-img {
+
+    }
     @include breakpoint(smedium){
       width: 100%;
     };
@@ -157,8 +161,6 @@ main {
 .main-img {
   cursor: pointer;
   opacity: 0;
-
-
   &.fade {
     @include animation(fade,2s,forwards,1);
   }
@@ -175,10 +177,10 @@ main {
 
 
 .main-figure-text-container {
-
-  margin-top: 0em;
+  margin-top: 0 ;
   height: auto;
   width: 80%;
+
   & h2 {
     opacity: 0;
     @include animation(fade,1s,forwards,1);
