@@ -58,7 +58,7 @@ const showRoom = (function(){
     },
 
     shungaTour: () => {
-      showRoom.startTour('intercourse','','schilder','','',0)
+      showRoom.startTour('','','schilder','','',0)
     },
 
     //Main search function that runs startTour with user input-values.
