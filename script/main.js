@@ -28,7 +28,7 @@ const showRoom = (function(){
     //Initiates an ajax get call adn appends the response to list-section.
     startTour: (query,artist,role,yearFrom,yearTo,listIndex,type) => {
       //showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=100&key=q7U&format=json&st=OBJECTS`)
-      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${role}&type=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=50&key=WU1Jjq7U&format=json&st=OBJECTS`)
+      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${role}&type=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=60&key=WU1Jjq7U&format=json&st=OBJECTS`)
       .done(function(response){
         tempList = response.artObjects;
         showRoom.appendResponseToInterface(tempList,listIndex);
@@ -46,7 +46,7 @@ const showRoom = (function(){
     },
 
     animalsTour: () => {
-      showRoom.startTour('animals','','schilder','','',0),'';
+      showRoom.startTour('animals','','schilder','','',0,'');
     },
 
     masterPiecesTour: () => {
@@ -75,13 +75,13 @@ const showRoom = (function(){
 
     //Appends search-result-respond to html-interface.
     appendResponseToInterface:function(list, index) {
-      console.log(list);
+      showRoom.lazyLoadImages();
       let Html = '';
       let section = document.getElementsByClassName('list-section')[index];
       for (let i = 0; i < list.length; i++) {
         if(list[i].webImage !== null ){
           Html += `<figure class="list-figure">
-                          <img class="list-img" src="${list[i].webImage.url}">
+                          <img class="list-img" data-original="${list[i].webImage.url}">
                           <h4>${list[i].longTitle}</h4>
                           <p>${list[i].principalOrFirstMaker}</p>
                           <a target="_blank" href="${list[i].webImage.url}">full-sized image</a>
@@ -138,32 +138,11 @@ const showRoom = (function(){
       }
     },
 
-    /*
-    addEventListenerToFigure: function() {
-      this.addEventListener('click', showRoom.appendImgToMainFigureOnClick);
-    },    */
-
-
-
-    /*
-
-    getObjectsFromObjectNumberList: (list) => {
-      fullList = [];
-
-      for (let i = 0; i < list.length; i++) {
-        showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection/${list[i]}?key=WU1Jjq7U&format=json`)
-          .then(function(resp){
-            //showRoom.appendHtmlForEachResponse(resp.artObject);
-            fullList.push(resp.artObject);
-            console.log(i);
-            console.log(fullList);
-          });
-      }
+    lazyLoadImages: () => {
+      $(function() {
+        $("img.list-img").lazyload({threshold : 400});
+      });
     },
-    */
-
-
-    //TOURS AJAX https://www.rijksmuseum.nl/en/search?s=objecttype&p=1&ps=12&involvedMaker=Rembrandt%20Harmensz.%20van%20Rijn&st=OBJECTS&ii=0
 
     //Enables click on search-button when enter-key is pressed.
     enterKey:(key) => {
@@ -172,8 +151,8 @@ const showRoom = (function(){
         document.getElementsByClassName('search-button')[0].click();
         return false;
       }
+    },
 
-},
     //funciton that sets eventlisteners on app initiation and runs correct code on each html-site.
     init: function() {
       document.getElementById('rembrandt-main')!==null ? showRoom.rembrandtTour():{};
@@ -188,7 +167,6 @@ const showRoom = (function(){
       document.getElementsByClassName('arrow-left')[0].addEventListener('click', showRoom.changeMainImgOnClickBack);
       document.getElementsByClassName('search-button')[0] !== undefined ?
       document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.getFromSearchQuery):{};
-
 
     }
 };//end showRoom.

@@ -2,6 +2,7 @@
 @import "header";
 @import "forms";
 @import "tours";
+
 html {
   overflow-x: hidden;
 }
@@ -89,6 +90,21 @@ main {
 .list-section {
   position: relative;
   @include flexbox();
+  //@include flex-direction(row);
+  @include justify-content(space-between);
+  @include align-items(flex-start);
+  flex-flow: row wrap;
+  width: 100%;
+  background: white;
+  padding-top: 1em;
+  @include breakpoint(xlarge){
+    width: 100%;
+  };
+}
+/*
+.list-section {
+  position: relative;
+  @include flexbox();
   @include flex-direction(row);
   @include justify-content(space-between);
   @include align-items(flex-start);
@@ -99,9 +115,9 @@ main {
   @include breakpoint(xlarge){
     width: 100%;
   };
+}*/
 
 
-}
 
 .main-figure {
   @include flexbox();
@@ -119,7 +135,7 @@ main {
 
     @include animation(fade,2s,forwards,1);
     opacity: 0;
-    height: 28em;
+    width: 100%;
     &.tour-img {
 
     }
@@ -128,7 +144,7 @@ main {
       width: 100%;
     };
     @include breakpoint(smedium){
-      width: 100%;
+      width: 80%;
     };
 
     //margin:0 0 0 1em;
