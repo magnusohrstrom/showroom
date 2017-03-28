@@ -146,7 +146,8 @@ footer {
   margin-bottom: 3em; }
   @media (max-width: 1300px) {
     .form-section {
-      width: 100%; } }
+      width: 100%;
+      justify-content: space-between; } }
   @media (max-width: 900px) {
     .form-section {
       -webkit-justify-content: space-between;
@@ -163,7 +164,8 @@ footer {
       -webkit-align-items: center;
       -moz-align-items: center;
       -ms-align-items: center;
-      align-items: center; } }
+      align-items: center;
+      width: 100vw; } }
 
 .search-form {
   display: -webkit-box;
@@ -190,11 +192,12 @@ footer {
   width: 20em;
   padding: 1em; }
   .search-form button {
-    height: 2em;
+    height: 2.4em;
     width: 30%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: white;
-    background: #292D3F;
+    background: #FF006C;
+    color: white;
     border: 0;
     margin: 0 0 0 0; }
   .search-form label {
@@ -211,7 +214,7 @@ footer {
     font-size: 1.2rem;
     color: #292D3F; }
     .search-form input.year-input {
-      width: 100%; }
+      width: 74%; }
   @media (max-width: 900px) {
     .search-form {
       width: 20em; } }
@@ -222,10 +225,10 @@ footer {
 
 select {
   height: 2rem;
-  width: 100%;
+  width: 76%;
   border-radius: 0;
   border: none;
-  background-color: #FF006C;
+  background-color: #292D3F;
   color: white;
   overflow: hidden !important;
   font-size: 1em;
@@ -306,7 +309,7 @@ select {
   -ms-flex-pack: center; }
 
 .year-input {
-  width: 100%; }
+  width: 20%; }
 
 .search-wrapper {
   display: -webkit-box;
@@ -507,10 +510,16 @@ select {
     transform: scale(1.04); }
   .tour-name a {
     color: white; }
+  @media (max-width: 464px) {
+    .tour-name {
+      margin: 60% 10% 0 0; } }
 
 .tours-h1 {
   margin: 2.5em;
   background: yellow; }
+  @media (max-width: 464px) {
+    .tours-h1 {
+      margin: 2em 0 1em 0; } }
 
 .tours-article {
   max-width: 30em;
@@ -518,8 +527,7 @@ select {
   width: 35%;
   background: yellow;
   color: black;
-  padding: 2em;
-  min-height: 28em; }
+  padding: 2em; }
   .tours-article p {
     margin-right: 3em; }
   @media (max-width: 785px) {
@@ -537,6 +545,12 @@ select {
 
 #murder {
   background-image: url("../images/murder.jpg"); }
+
+#masterpieces {
+  background-image: url("../images/sea.jpg"); }
+
+#flower {
+  background-image: url("../images/flower.jpg"); }
 
 html {
   overflow-x: hidden; }
@@ -677,7 +691,7 @@ main {
   -ms-align-items: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   background: white;
   padding-top: 1em; }
   @media (max-width: 1300px) {
@@ -703,10 +717,10 @@ main {
   -moz-align-items: flex-start;
   -ms-align-items: flex-start;
   align-items: flex-start;
-  width: 40%;
+  width: 50%;
   min-height: 100%;
   height: 100%;
-  margin: 5em 4em;
+  margin: 0em 4em;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -ms-transition: all 1s ease;
@@ -741,19 +755,24 @@ main {
     -ms-transition: all 1s ease;
     -o-transition: all 1s ease;
     transition: all 1s ease; }
+    @media (max-width: 785px) {
+      .main-figure img {
+        width: 100%; } }
     .main-figure img.tour-img {
       width: 100%; }
       @media (max-width: 1100px) {
         .main-figure img.tour-img {
           width: 100%; } }
   .main-figure.tours-figure {
-    margin: 0 0 0 4em; }
+    margin: 0; }
   @media (max-width: 1300px) {
     .main-figure {
       margin: 0; } }
-  @media (max-width: 900px) {
+  @media (max-width: 785px) {
     .main-figure {
-      width: 48%; } }
+      width: 100%;
+      max-width: 33em;
+      margin: 0; } }
   @media (max-width: 464px) {
     .main-figure {
       width: 100%; } }
@@ -791,9 +810,9 @@ main {
       width: 80%; } }
 
 .main-figure-text-container {
-  margin-top: 2em;
+  margin-top: 0em;
   height: auto;
-  width: 100%; }
+  width: 80%; }
   .main-figure-text-container h2 {
     opacity: 0;
     -webkit-animation-name: fade;
@@ -822,7 +841,7 @@ main {
     color: black; }
 
 .tours-aside {
-  width: 33%; }
+  width: 100%; }
 
 .main-img-box {
   display: -webkit-box;
@@ -875,6 +894,27 @@ main {
     width: 100%;
     margin: 0; }
 
+.main-img-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center; }
+
 .arrow-right {
   border-top: 1.5em solid transparent;
   border-bottom: 1.5em solid transparent;
@@ -893,6 +933,7 @@ main {
   width: 0;
   height: 0;
   cursor: pointer;
+  margin: 1em;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   -ms-transition: all 0.4s ease;
@@ -1038,7 +1079,7 @@ main {
     margin: 0em;
     background-size: contain; }
   .list-figure a {
-    color: black; }
+    color: #FF006C; }
   @media (max-width: 1440px) {
     .list-figure {
       width: 30%; } }

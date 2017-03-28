@@ -26,9 +26,9 @@ const showRoom = (function(){
     },
 
     //Initiates an ajax get call adn appends the response to list-section.
-    startTour: (query,artist,type,yearFrom,yearTo,listIndex) => {
+    startTour: (query,artist,role,yearFrom,yearTo,listIndex,type) => {
       //showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=100&key=q7U&format=json&st=OBJECTS`)
-      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=50&key=WU1Jjq7U&format=json&st=OBJECTS`)
+      showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${role}&type=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=50&key=WU1Jjq7U&format=json&st=OBJECTS`)
       .done(function(response){
         tempList = response.artObjects;
         showRoom.appendResponseToInterface(tempList,listIndex);
@@ -38,27 +38,27 @@ const showRoom = (function(){
     },
 
     rembrandtTour: () => {
-      showRoom.startTour('','Rembrandt+Harmensz.+van+Rijn','schilder', '', '',0);
+      showRoom.startTour('','Rembrandt+Harmensz.+van+Rijn','schilder', '', '',0,'');
     },
 
     selfportraitsTour: () => {
-      showRoom.startTour('self portrait','','schilder','','',0);
+      showRoom.startTour('self portrait','','schilder','','',0,'');
     },
 
     animalsTour: () => {
-      showRoom.startTour('animals','','schilder','','',0);
+      showRoom.startTour('animals','','schilder','','',0),'';
     },
 
-    masterPeicesTour: () => {
-      showRoom.startTour('masterpeice','','schilder','','',0);
+    masterPiecesTour: () => {
+      showRoom.startTour('sea','','','','',0,'painting');
     },
 
     murderTour: () => {
-      showRoom.startTour('murder','','','','',0);
+      showRoom.startTour('murder','','','','',0,'');
     },
 
-    shungaTour: () => {
-      showRoom.startTour('','','schilder','','',0)
+    flowerTour: () => {
+      showRoom.startTour('flowers','','schilder','','',0,'');
     },
 
     //Main search function that runs startTour with user input-values.
@@ -70,7 +70,7 @@ const showRoom = (function(){
       let yearFrom = document.getElementById('year-from').value;
       let yearTo = document.getElementById('year-to').value;
       let s = '';
-        showRoom.startTour(query,artist,type,yearFrom,yearTo,0);
+        showRoom.startTour(query,artist,type,yearFrom,yearTo,0,s);
     },
 
     //Appends search-result-respond to html-interface.
@@ -181,7 +181,7 @@ const showRoom = (function(){
       document.getElementById('animals-main')!==null ? showRoom.animalsTour():{};
       document.getElementById('masterpieces-main')!== null ? showRoom.masterPiecesTour():{};
       document.getElementById('murder-main')!== null ? showRoom.murderTour():{};
-      document.getElementById('masterpieces-main')!== null ? showRoom.masterPiecesTour():{};
+      document.getElementById('flower-main')!== null ? showRoom.flowerTour():{};
 
       document.getElementsByClassName('arrow-right')[0].addEventListener('click', showRoom.changeMainImgOnClickForward);
       document.getElementsByClassName('main-img')[0].addEventListener('click', showRoom.changeMainImgOnClickForward);

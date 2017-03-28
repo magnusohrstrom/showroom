@@ -135,10 +135,17 @@
   & a {
     color:white;
   }
+
+  @include breakpoint(small){
+      margin:60% 10% 0 0;
+  };
 }
 .tours-h1 {
   margin: 2.5em;
   background:yellow;
+  @include breakpoint(small){
+    margin:2em 0 1em 0 ;
+  }
 }
 
 .tours-article {
@@ -148,7 +155,7 @@
   background: yellow;
   color:black;
   padding:2em;
-  min-height: 28em;
+
 
 
   & p {
@@ -174,4 +181,11 @@
 }
 #murder {
   background-image: url('../images/murder.jpg');
+}
+#masterpieces {
+  background-image: url('../images/sea.jpg');
+}
+
+#flower{
+  background-image: url('../images/flower.jpg');
 }
