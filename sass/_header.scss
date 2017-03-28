@@ -21,8 +21,13 @@ header {
       //margin-right: 3%;
       color:$wall-grey;
       font-size: 1.2em;
-      //font-family: 'Open-Sans', sans-serif;
-      //font-style: italic;
+      @include transition(all 0.3s ease);
+
+      &:hover {
+        color:$secondary-color;
+        @include transform(scale(1.05));
+
+      }
     }
     @include breakpoint(small){
       display: none;
@@ -33,8 +38,11 @@ header {
 #title {
   margin: 0.2em 0 0 2.2%;
   font-size: 2em;
-
   color:$wall-grey;
+    @include transition(all 0.3s ease);
+  &:hover {
+    color:$secondary-color;
+  }
 }
 
 #header-triangle{

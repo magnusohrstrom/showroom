@@ -156,7 +156,7 @@
   color:black;
   padding:2em;
   border-radius: 100%;
-
+  margin-bottom: 1em;
 
   & p {
     margin-right: 3em;
@@ -164,11 +164,9 @@
   & h2 {
 
   }
-
   @include breakpoint(small){
     height: 18em;
     width: 18em;
-    margin-bottom: 1em;
   };
 }
 
