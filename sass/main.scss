@@ -101,7 +101,7 @@ main {
   @include justify-content(space-between);
   @include align-items(flex-start);
   flex-flow: row wrap;
-  min-height: 6em;
+  min-height: 15em;
   width: 100%;
   background: #DAE2F8; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #DAE2F8 , #D6A4A4); /* Chrome 10-25, Safari 5.1-6 */
@@ -324,7 +324,9 @@ main {
     font-size:1.3em;
     margin: 1em;
   };
-
+  &.last{
+    margin-top:2em;
+  }
 }
 
 .list-figure {

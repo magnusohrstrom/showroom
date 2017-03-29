@@ -79,6 +79,13 @@ footer {
     @include flexbox();
     width: 100%;
     & a {
+      @include transition(all 0.3s ease);
+      font-size: 1.3em;
+      &:hover {
+        color:#DAE2F8;
+        @include transform(scale(1.2));
+
+      }
       color:white;
     }
     @include flex-direction(row);
@@ -96,10 +103,8 @@ footer {
 }
 
 #copyright {
-  margin-bottom: 6em;
-  @include breakpoint(small){
-    margin-bottom: 6em;
-  };
+  margin-bottom: 3em;
+  font-size: 0.9em;
 
 }
 
@@ -113,6 +118,13 @@ footer {
   position: fixed;
   bottom: 0.4em;
   right:3%;
+  @include transition(all 0.5s ease);
+  &:active{
+    @include transform(translate(0,-2em));
+  }
+  &:hover{
+    @include transform(scale(1.2));
+  }
   @include breakpoint(small){
     bottom:3.4em;
     border-bottom: 1.2em solid $secondary-color;

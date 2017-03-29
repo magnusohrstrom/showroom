@@ -147,7 +147,20 @@ footer {
     justify-content: space-around;
     -ms-flex-pack: space-around; }
     footer nav a {
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      font-size: 1.3em;
       color: white; }
+      footer nav a:hover {
+        color: #DAE2F8;
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2); }
     @media (max-width: 464px) {
       footer nav {
         display: -webkit-box;
@@ -161,10 +174,8 @@ footer {
     left: 0; }
 
 #copyright {
-  margin-bottom: 6em; }
-  @media (max-width: 464px) {
-    #copyright {
-      margin-bottom: 6em; } }
+  margin-bottom: 3em;
+  font-size: 0.9em; }
 
 .index-ball {
   width: 0;
@@ -174,7 +185,24 @@ footer {
   border-bottom: 1.2em solid white;
   position: fixed;
   bottom: 0.4em;
-  right: 3%; }
+  right: 3%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  .index-ball:active {
+    -webkit-transform: translate(0, -2em);
+    -moz-transform: translate(0, -2em);
+    -ms-transform: translate(0, -2em);
+    -o-transform: translate(0, -2em);
+    transform: translate(0, -2em); }
+  .index-ball:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2); }
   @media (max-width: 464px) {
     .index-ball {
       bottom: 3.4em;
@@ -246,18 +274,30 @@ footer {
   justify-content: space-between;
   -ms-flex-pack: space-between;
   height: auto;
-  margin: 1em 0 2em 0;
-  background: white;
+  margin: -1em 0 2em 0;
   width: 20em;
   padding: 1em; }
   .search-form button {
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    cursor: pointer;
     height: 2.5em;
     width: 30%;
     font-size: 1rem;
     color: white;
     background: #060E47;
     border: 0;
-    margin: 0 0 0 0; }
+    margin: 0; }
+    .search-form button:active {
+      -webkit-transform: scale(0.8);
+      -moz-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+      -o-transform: scale(0.8);
+      transform: scale(0.8);
+      background: #D6A4A4; }
   .search-form label {
     color: #060E47;
     font-size: 1em;
@@ -266,7 +306,6 @@ footer {
     margin-top: 0.8em; }
   .search-form input {
     background: white;
-    border-style: dashed;
     border: 0.2em solid #060E47;
     width: 100%;
     height: 2rem;
@@ -297,7 +336,10 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 0; }
+  padding: 0;
+  cursor: pointer; }
+  select:hover {
+    background: #D6A4A4; }
 
 .select-div {
   display: -webkit-box;
@@ -802,7 +844,7 @@ main {
   -ms-align-items: flex-start;
   align-items: flex-start;
   flex-flow: row wrap;
-  min-height: 6em;
+  min-height: 15em;
   width: 100%;
   background: #DAE2F8;
   /* fallback for old browsers */
@@ -1155,6 +1197,8 @@ main {
     .landing-h1.browse-h1 {
       font-size: 1.3em;
       margin: 1em; } }
+  .landing-h1.browse-h1.last {
+    margin-top: 2em; }
 
 .list-figure {
   height: auto;
