@@ -92,7 +92,7 @@ const showRoom = (function(){
         if(list[i].webImage !== null ){
           Html += `<figure class="list-figure">
                           <img class="list-img" data-original="${list[i].webImage.url}">
-                          <h4>${list[i].longTitle}</h4>
+                          <h4>${i+1}. ${list[i].longTitle}</h4>
                           <p>${list[i].principalOrFirstMaker}</p>
                           <a target="_blank" href="${list[i].webImage.url}">full-sized image</a>
                         </figure>`;
@@ -155,6 +155,14 @@ const showRoom = (function(){
       });
     },
 
+    //Smooth scrolling
+    smoothScrollAhref: () => {
+      $('a[href*=#]').on('click', function(event){
+          event.preventDefault();
+          $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+      });
+  },
+
     //Enables click on search-button when enter-key is pressed.
     enterKey:(e) => {
       e = window.event;
@@ -173,6 +181,7 @@ const showRoom = (function(){
       document.getElementById('murder-main')!== null ? showRoom.murderTour():{};
       document.getElementById('flower-main')!== null ? showRoom.flowerTour():{};
 
+      showRoom.smoothScrollAhref();
       document.getElementsByClassName('arrow-right')[0]!== undefined ? document.getElementsByClassName('arrow-right')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
       document.getElementsByClassName('main-img')[0]!== undefined ? document.getElementsByClassName('main-img')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
       document.getElementsByClassName('arrow-left')[0]!== undefined ? document.getElementsByClassName('arrow-left')[0].addEventListener('click', showRoom.changeMainImgOnClickBack):{};

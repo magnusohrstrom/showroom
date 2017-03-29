@@ -1,9 +1,7 @@
 header {
-  background: #ED4264; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #ED4264 , #FFEDBC); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #ED4264 , #FFEDBC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  
+  background: #DAE2F8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #DAE2F8 , #D6A4A4); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #DAE2F8 , #D6A4A4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   position:fixed;
   width: 100%;
   left:0;
@@ -23,13 +21,13 @@ header {
     width: 70%;
     & a {
       margin:0.2em 3% 0 6%;
-      //margin-right: 3%;
+      font-weight: 600;
       color:$wall-grey;
       font-size: 1.2em;
       @include transition(all 0.3s ease);
 
       &:hover {
-        color:$secondary-color;
+        color:white;
         @include transform(scale(1.05));
 
       }
@@ -46,7 +44,7 @@ header {
   color:$wall-grey;
     @include transition(all 0.3s ease);
   &:hover {
-    color:$secondary-color;
+    color:white;
   }
 }
 

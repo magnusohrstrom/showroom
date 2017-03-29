@@ -11,9 +11,13 @@ body {
   overflow-x: hidden;
   margin:0;
   padding: 0;
-  background: #ED4264; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #ED4264 , #FFEDBC); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #ED4264 , #FFEDBC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*
+background: #085078; /* fallback for old browsers
+  background: -webkit-linear-gradient(to left, #085078 , #85D8CE); /* Chrome 10-25, Safari 5.1-6 */
+  background: #DAE2F8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #DAE2F8 , #D6A4A4); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #DAE2F8 , #D6A4A4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 
   @include flexbox();
@@ -24,7 +28,9 @@ background: linear-gradient(to left, #ED4264 , #FFEDBC); /* W3C, IE 10+/ Edge, F
 a {
   text-decoration: none;
   font-family: 'Nothing You Could Do', cursive;
-    letter-spacing: 0.09em;
+  letter-spacing: 0.09em;
+  cursor:pointer;
+  font-weight: 500;
 }
 
 h1,h2,h3,#title,{
@@ -188,14 +194,21 @@ main {
   margin-top: 0 ;
   height: auto;
   width: 80%;
+  background: white;
+
 
   & h2 {
+    margin-left: 1em;
     opacity: 0;
     @include animation(fade,1s,forwards,1);
-    background: yellow;
+    background: white;
   }
   & a {
+    margin: 1em;
     color:black;
+  }
+  & p {
+    margin-left: 1em;
   }
 }
 .tours-aside {
@@ -280,12 +293,14 @@ main {
   @include breakpoint(large){
     font-size: 1.5em;
   };
-
 }
+
 .landing-h1.showroom-h1 {
   font-size: 6em;
   animation-delay: 1s;
   color:$secondary-color;
+  color:-webkit-linear-gradient(to left, #085078 , #85D8CE);
+  color:linear-gradient(to left, #085078 , #85D8CE);
   margin:-1em 0 0 0;
 
   @include breakpoint(large){
@@ -298,7 +313,7 @@ main {
 
 .landing-h1.browse-h1{
   font-size: 2.2em;
-  color: $wall-grey;
+  color:$wall-grey;
   animation-delay: 1.8s;
   @include breakpoint(small){
     font-size:1.3em;
