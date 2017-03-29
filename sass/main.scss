@@ -11,7 +11,11 @@ body {
   overflow-x: hidden;
   margin:0;
   padding: 0;
-  background:white;
+  background: #ED4264; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ED4264 , #FFEDBC); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ED4264 , #FFEDBC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
   @include flexbox();
   @include flex-direction(column);
   @include align-items(center);
@@ -76,14 +80,11 @@ main {
 .list-wrapper {
   width: 99%;
   height: auto;
-  //background:blue;
   @include flexbox();
   @include flex-direction(column);
   @include justify-content(flex-start);
   @include align-items(center);
-  //border: 0.5em solid $wall-grey;
 
-  min-height: 20em;
 
 }
 
@@ -101,23 +102,6 @@ main {
     width: 100%;
   };
 }
-/*
-.list-section {
-  position: relative;
-  @include flexbox();
-  @include flex-direction(row);
-  @include justify-content(space-between);
-  @include align-items(flex-start);
-  flex-wrap: wrap;
-  width: 100%;
-  background: white;
-  padding-top: 1em;
-  @include breakpoint(xlarge){
-    width: 100%;
-  };
-}*/
-
-
 
 .main-figure {
   @include flexbox();

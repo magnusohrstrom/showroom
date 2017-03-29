@@ -31,10 +31,19 @@ const showRoom = (function(){
       showRoom.getShort(`https://www.rijksmuseum.nl/api/en/collection?q=${query}&involvedMaker=${artist}&role=${role}&type=${type}&imgonly=True&s=objecttype&toppieces=True&yearfrom=${yearFrom}&yearto=${yearTo}&ps=60&key=WU1Jjq7U&format=json&st=OBJECTS`)
       .done(function(response){
         tempList = response.artObjects;
+        artist !== '' ? showRoom.filterTempListOnArtist(artist):false;
         showRoom.appendResponseToInterface(tempList,listIndex);
         showRoom.appendImgToMainFigure(tempList[0].webImage.url,0);
         showRoom.appendTextToMainTextBox(tempList[0]);
       });
+    },
+
+    filterTempListOnArtist: (artist) => {
+      let arr = tempList.filter(function(elem){
+        return elem.principalOrFirstMaker.indexOf(artist.substring(0,4))!==-1;
+      });
+      tempList = arr;
+      return tempList;
     },
 
     rembrandtTour: () => {
@@ -70,6 +79,7 @@ const showRoom = (function(){
       let yearFrom = document.getElementById('year-from').value;
       let yearTo = document.getElementById('year-to').value;
       let s = '';
+
         showRoom.startTour(query,artist,type,yearFrom,yearTo,0,s);
     },
 
@@ -111,9 +121,10 @@ const showRoom = (function(){
 
     appendTextToMainTextBox: (obj) => {
       let mainTextBox = document.getElementsByClassName('main-figure-text-container')[0];
-      mainTextBox !== undefined ?
-        mainTextBox.innerHTML = `<h2>${obj.longTitle}</h2><p>${obj.principalOrFirstMaker}</p><a target="_blank" href="${obj.webImage.url}">Full-sized image</a>`
-        :{};
+      mainTextBox !== undefined ? mainTextBox.innerHTML =
+      `<h2>${obj.longTitle}</h2>
+      <p>${obj.principalOrFirstMaker}</p>
+      <a target="_blank" href="${obj.webImage.url}">Full-sized image</a>`:{};
     },
 
     changeMainImgOnClickForward: () => {
@@ -137,7 +148,7 @@ const showRoom = (function(){
         }
       }
     },
-
+   //Only loads images that are visibil in the window + 400px down.
     lazyLoadImages: () => {
       $(function() {
         $("img.list-img").lazyload({threshold : 400});
@@ -145,9 +156,9 @@ const showRoom = (function(){
     },
 
     //Enables click on search-button when enter-key is pressed.
-    enterKey:(key) => {
-      key=window.event;
-      if(window.event.keyCode == 13){
+    enterKey:(e) => {
+      e = window.event;
+      if(e.keyCode == 13){
         document.getElementsByClassName('search-button')[0].click();
         return false;
       }
@@ -165,9 +176,8 @@ const showRoom = (function(){
       document.getElementsByClassName('arrow-right')[0]!== undefined ? document.getElementsByClassName('arrow-right')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
       document.getElementsByClassName('main-img')[0]!== undefined ? document.getElementsByClassName('main-img')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
       document.getElementsByClassName('arrow-left')[0]!== undefined ? document.getElementsByClassName('arrow-left')[0].addEventListener('click', showRoom.changeMainImgOnClickBack):{};
-      document.getElementsByClassName('search-button')[0] !== undefined ?
-      document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.getFromSearchQuery):{};
-
+      document.getElementsByClassName('search-button')[0] !== undefined ? document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.getFromSearchQuery):{};
+      document.getElementsByClassName('search-input')[0] !== undefined ? document.getElementsByClassName('search-input')[0].addEventListener('keypress', function(){showRoom.enterKey(window.event);}):{};
     }
 };//end showRoom.
 })();
