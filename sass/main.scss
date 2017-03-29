@@ -169,6 +169,7 @@ main {
   };
 
   @include breakpoint(smedium){
+    display: none;
     width: 100%;
     max-width: 33em;
     margin: 0;

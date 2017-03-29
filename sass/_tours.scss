@@ -61,7 +61,7 @@
   height: 26em;
   width: 26em;
   border-radius: 100%;
-  margin:0 0 3% 0;
+  margin:1em;
   @include breakpoint(xlarge){
     width: 20em;
     height: 20em;
@@ -164,6 +164,9 @@
   & h2 {
 
   }
+  @include breakpoint(smedium){
+    margin-bottom:-8em;
+  };
   @include breakpoint(small){
     height: 18em;
     width: 18em;

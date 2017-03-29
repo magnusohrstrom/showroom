@@ -2,6 +2,7 @@ header {
   background:white;
   position:fixed;
   width: 100%;
+  left:0;
   height: 2.4em;
   z-index: 1000;
   @include flexbox();
@@ -67,7 +68,9 @@ footer {
 
   };
   & nav {
+
     display: none;
+    @include flexbox();
     width: 100%;
     & a {
       color:white;
@@ -79,4 +82,11 @@ footer {
     @include flexbox();
     };
   }
+}
+
+#copyright {
+  @include breakpoint(small){
+    margin-bottom: 3em;
+  };
+
 }

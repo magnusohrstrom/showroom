@@ -106,18 +106,18 @@ const showRoom = (function(){
 
     appendImgToMainFigure: (url,index) => {
       let mainImg = document.getElementsByClassName('main-img')[index];
-        mainImg.setAttribute('src', url);
+        mainImg !== undefined ? mainImg.setAttribute('src', url):{};
     },
 
     appendTextToMainTextBox: (obj) => {
       let mainTextBox = document.getElementsByClassName('main-figure-text-container')[0];
-        mainTextBox.innerHTML = `<h2>${obj.longTitle}</h2><p>${obj.principalOrFirstMaker}</p><a target="_blank" href="${obj.webImage.url}">Full-sized image</a>`;
+      mainTextBox !== undefined ?
+        mainTextBox.innerHTML = `<h2>${obj.longTitle}</h2><p>${obj.principalOrFirstMaker}</p><a target="_blank" href="${obj.webImage.url}">Full-sized image</a>`
+        :{};
     },
 
     changeMainImgOnClickForward: () => {
       let img = document.getElementsByClassName('main-img')[0].src;
-      console.log(img);
-      console.log(tempList[0].webImage.url);
       for (let i = 0; i < tempList.length; i++) {
         if(tempList[i].webImage.url===img){
           showRoom.appendImgToMainFigure(tempList[i+1].webImage.url,0);
@@ -162,9 +162,9 @@ const showRoom = (function(){
       document.getElementById('murder-main')!== null ? showRoom.murderTour():{};
       document.getElementById('flower-main')!== null ? showRoom.flowerTour():{};
 
-      document.getElementsByClassName('arrow-right')[0].addEventListener('click', showRoom.changeMainImgOnClickForward);
-      document.getElementsByClassName('main-img')[0].addEventListener('click', showRoom.changeMainImgOnClickForward);
-      document.getElementsByClassName('arrow-left')[0].addEventListener('click', showRoom.changeMainImgOnClickBack);
+      document.getElementsByClassName('arrow-right')[0]!== undefined ? document.getElementsByClassName('arrow-right')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
+      document.getElementsByClassName('main-img')[0]!== undefined ? document.getElementsByClassName('main-img')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
+      document.getElementsByClassName('arrow-left')[0]!== undefined ? document.getElementsByClassName('arrow-left')[0].addEventListener('click', showRoom.changeMainImgOnClickBack):{};
       document.getElementsByClassName('search-button')[0] !== undefined ?
       document.getElementsByClassName('search-button')[0].addEventListener('click',showRoom.getFromSearchQuery):{};
 
