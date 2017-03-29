@@ -62,6 +62,7 @@
   width: 26em;
   border-radius: 100%;
   margin:1em;
+  z-index:100;
   @include breakpoint(xlarge){
     width: 20em;
     height: 20em;

@@ -9,7 +9,7 @@ const showRoom = (function(){
 
     //Get function for all get requests including error handler and loading icon.
     getShort: (url) => {
-      document.getElementsByClassName('loading-img')[0].classList.toggle('active');
+      document.getElementsByClassName('loading-container')[0].classList.toggle('active');
       return $.ajax({
         method: 'GET',
         dataType:'json',
@@ -17,7 +17,7 @@ const showRoom = (function(){
       })
         .always(function(res){
           console.log(res);
-          document.getElementsByClassName('loading-img')[0].classList.toggle('active');
+          document.getElementsByClassName('loading-container')[0].classList.toggle('active');
         })
           .fail((error)=>{
             console.log(error);
@@ -88,19 +88,29 @@ const showRoom = (function(){
       showRoom.lazyLoadImages();
       let Html = '';
       let section = document.getElementsByClassName('list-section')[index];
-      for (let i = 0; i < list.length; i++) {
-        if(list[i].webImage !== null ){
-          Html += `<figure class="list-figure">
-                          <img class="list-img" data-original="${list[i].webImage.url}">
-                          <h4>${i+1}. ${list[i].longTitle}</h4>
-                          <p>${list[i].principalOrFirstMaker}</p>
-                          <a target="_blank" href="${list[i].webImage.url}">full-sized image</a>
-                        </figure>`;
+
+      if(tempList.length>0){
+        for (let i = 0; i < list.length; i++) {
+          if(list[i].webImage !== null ){
+            Html += `<figure class="list-figure">
+                            <img class="list-img" data-original="${list[i].webImage.url}">
+                            <h4>${i+1}. ${list[i].longTitle}</h4>
+                            <p>${list[i].principalOrFirstMaker}</p>
+                            <a target="_blank" href="${list[i].webImage.url}">full-sized image</a>
+                          </figure>`;
+          }
         }
+        section.innerHTML = Html;
+        showRoom.addEventListenerToListFigure();
       }
-      section.innerHTML = Html;
-      showRoom.addEventListenerToListFigure();
+      else{
+        showRoom.showEmptySearchMessage(section);
+      }
       section.style.background = "white";
+    },
+
+    showEmptySearchMessage: (section) => {
+      section.innerHTML = '<h2>Unfortunatly no results were found for your search.</h2>';
     },
 
     addEventListenerToListFigure: function(){

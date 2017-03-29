@@ -394,6 +394,78 @@ main {
   }
 }
 
+.loading-container {
+  display: none;
+  width: 4em;
+  height: 4em;
+  border-radius: 100%;
+  position: relative;
+  background: white;
+  position: fixed;
+  top:50%;
+  left:50%;
+  z-index:1000;
+  &.active {
+    display:inline;
+  }
+}
+
+.loading-object {
+
+  margin:-1em 0 0 -1em;
+  position: absolute;
+  height: 2em;
+  width: 2em;
+  border:0.2em solid $secondary-color;
+  //background: $secondary-color;
+  @include animation(loading,1.5s,forwards,infinite);
+  animation-timing-function: linear;
+  &:nth-child(2){
+    height: 0.8em;
+    width: 0.8em;
+    border:0.2em solid $secondary-color;
+    //background: $secondary-color;
+    @include animation(loading,1s,forwards,infinite);
+
+  }
+  &:nth-child(3){
+    height: 2em;
+    width: 1em;
+    border:0.2em solid $secondary-color;
+    //background: $secondary-color;
+    @include animation(loading,2s,forwards,infinite);
+  }
+
+}
+
+
+@include keyframe(loading){
+  0%{
+    @include transform(rotate(0deg));
+    top:0;
+    left:0;
+  }
+  25% {
+    @include transform(rotate(200deg));
+    top:0;
+    left:100%;
+  }
+  50% {
+    @include transform(rotate(400deg));
+    top:100%;
+    left:100%;
+  }
+  75% {
+    @include transform(rotate(600deg));
+    left:0;
+    top:100%;
+  }
+  100% {
+    @include transform(rotate(800deg));
+    left:0;
+    top:0;
+  }
+};
 
 
 
