@@ -205,7 +205,8 @@ footer {
     transform: scale(1.2); }
   @media (max-width: 464px) {
     .index-ball {
-      bottom: 3.4em;
+      bottom: auto;
+      top: 1rem;
       border-bottom: 1.2em solid #060E47; } }
 
 .form-section {
@@ -633,7 +634,9 @@ select {
     font-weight: 600; }
   @media (max-width: 464px) {
     .tour-name {
-      margin: 60% 10% 0 0; } }
+      margin: 60% 10% 0 0; }
+      .tour-name a {
+        font-size: 1.5em; } }
 
 .tours-h1 {
   margin: 2.5em;

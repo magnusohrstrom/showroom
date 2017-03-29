@@ -126,7 +126,8 @@ footer {
     @include transform(scale(1.2));
   }
   @include breakpoint(small){
-    bottom:3.4em;
+    bottom:auto;
+    top:1rem;
     border-bottom: 1.2em solid $secondary-color;
   };
 }
