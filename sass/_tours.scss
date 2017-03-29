@@ -162,7 +162,7 @@
   padding:2em;
   border-radius: 100%;
   margin-bottom: 1em;
-
+  @include animation(fade,1s,forwards,1);
   & p {
     margin-right: 3em;
   }

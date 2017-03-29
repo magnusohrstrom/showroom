@@ -100,6 +100,7 @@ const showRoom = (function(){
       }
       section.innerHTML = Html;
       showRoom.addEventListenerToListFigure();
+      section.style.background = "white";
     },
 
     addEventListenerToListFigure: function(){
@@ -157,7 +158,7 @@ const showRoom = (function(){
 
     //Smooth scrolling
     smoothScrollAhref: () => {
-      $('a[href*=#]').on('click', function(event){
+      $('a[href*=\\#]').on('click', function(event){
           event.preventDefault();
           $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
       });

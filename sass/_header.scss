@@ -2,7 +2,7 @@ header {
   background: #DAE2F8; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #DAE2F8 , #D6A4A4); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #DAE2F8 , #D6A4A4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  position:fixed;
+  position:absolute;
   width: 100%;
   left:0;
   height: 2.4em;
@@ -57,6 +57,10 @@ header {
 }
 
 footer {
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  z-index:1000;
   @include flexbox();
   @include flex-direction(row);
   @include align-items(center);
@@ -84,11 +88,33 @@ footer {
     @include flexbox();
     };
   }
+  &.about {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 #copyright {
+  margin-bottom: 6em;
   @include breakpoint(small){
-    margin-bottom: 3em;
+    margin-bottom: 6em;
   };
 
+}
+
+.index-ball {
+  width: 0;
+  height: 0;
+  border-left: 0.8em solid transparent;
+  border-right: 0.8em solid transparent;
+
+  border-bottom: 1.2em solid white;
+  position: fixed;
+  bottom: 0.4em;
+  right:3%;
+  @include breakpoint(small){
+    bottom:3.4em;
+    border-bottom: 1.2em solid $secondary-color;
+  };
 }

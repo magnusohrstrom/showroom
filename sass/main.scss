@@ -68,7 +68,7 @@ main {
   background-size:  cover;
   background-repeat: no-repeat;
   width: 100%;
-  height:860px;
+  height:830px;
   min-width: 70em;
   overflow: hidden;
   text-align: center;
@@ -84,7 +84,7 @@ main {
 }
 
 .list-wrapper {
-  width: 99%;
+  width: 100%;
   height: auto;
   @include flexbox();
   @include flex-direction(column);
@@ -101,8 +101,11 @@ main {
   @include justify-content(space-between);
   @include align-items(flex-start);
   flex-flow: row wrap;
+  min-height: 6em;
   width: 100%;
-  background: white;
+  background: #DAE2F8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #DAE2F8 , #D6A4A4); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #DAE2F8 , #D6A4A4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding-top: 1em;
   @include breakpoint(xlarge){
     width: 100%;
@@ -312,6 +315,8 @@ main {
 }
 
 .landing-h1.browse-h1{
+  margin:1.5rem;
+  font-weight: 600;
   font-size: 2.2em;
   color:$wall-grey;
   animation-delay: 1.8s;
