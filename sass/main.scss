@@ -320,6 +320,10 @@ main {
   font-size: 2.2em;
   color:$wall-grey;
   animation-delay: 1.8s;
+  @include transition(all 0.4s ease);
+  &:hover{
+    @include transform(scale(1.1));
+  }
   @include breakpoint(small){
     font-size:1.3em;
     margin: 1em;

@@ -11,10 +11,10 @@
 
   @include breakpoint(xlarge){
     width: 100%;
-    justify-content: space-between;
+    //justify-content: space-between;
   };
   @include breakpoint(medium){
-    @include justify-content(space-between);
+    //@include justify-content(space-between);
   };
   @include breakpoint(smedium){
     @include flex-direction(column);

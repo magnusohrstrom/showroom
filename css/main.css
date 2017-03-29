@@ -234,15 +234,7 @@ footer {
   margin-bottom: 3em; }
   @media (max-width: 1300px) {
     .form-section {
-      width: 100%;
-      justify-content: space-between; } }
-  @media (max-width: 900px) {
-    .form-section {
-      -webkit-justify-content: space-between;
-      -moz-justify-content: space-between;
-      -ms-justify-content: space-between;
-      justify-content: space-between;
-      -ms-flex-pack: space-between; } }
+      width: 100%; } }
   @media (max-width: 785px) {
     .form-section {
       -webkit-flex-direction: column;
@@ -1197,7 +1189,18 @@ main {
   font-weight: 600;
   font-size: 2.2em;
   color: #060E47;
-  animation-delay: 1.8s; }
+  animation-delay: 1.8s;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  .landing-h1.browse-h1:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1); }
   @media (max-width: 464px) {
     .landing-h1.browse-h1 {
       font-size: 1.3em;
