@@ -80,46 +80,10 @@
     width: 100%;
     margin:0;
   }
-  /*
-  &:nth-child(1){
-    & a {
-      color:black;
-    }
-  }
-  &:nth-child(2){
-    & div {
-      background-color: $secondary-color;
-    }
-  }
-  &:nth-child(3){
-    & div {
-      background-color: white;
-      & a {
-        color:black;
-      }
-    }
-  }
-  &:nth-child(4){
-    & div {
-      background-color: $secondary-color;
-    }
-  }
-  &:nth-child(5){
-    & div {
-      background-color: white;
-      & a {
-        color:black;
-      }
-    }
-  }
-  &:nth-child(6){
-    & div {
-      background-color: $secondary-color;
 
-    }
-  }  */
-
-
+  @include breakpoint(small){
+    margin:0 0 1em 0;
+  };
 }
 
 .tour-name {
@@ -130,7 +94,7 @@
   text-align: center;
   width: 80%;
   margin: 60% 30% 0% 0;
-
+  @include transition(all 0.4s ease);
   background: white; /* fallback for old browsers */
 
   &:hover {
@@ -158,6 +122,7 @@
 }
 
 .tours-article {
+  position: relative;
   max-width: 30em;
   height: 20em;
   width: 20em;

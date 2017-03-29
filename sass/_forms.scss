@@ -86,26 +86,26 @@
 }
 
 select {
-
-height: 2rem;
-width: 76%;
-border-radius: 0;
-border:none;
-background-color: $wall-grey;
-color:white;
-overflow: hidden!important;
-font-size: 1em;
-font-family: 'Open Sans', sans-serif;
-font-style:italic;
-text-align: center;
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-padding:0;
-cursor: pointer;
-  &:hover{
-    background: #D6A4A4;
-  }
+  @include transition(all 0.4s ease);
+  height: 2rem;
+  width: 76%;
+  border-radius: 0;
+  border:none;
+  background-color: $wall-grey;
+  color:white;
+  overflow: hidden!important;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  font-style:italic;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding:0;
+  cursor: pointer;
+    &:hover{
+      background: #D6A4A4;
+    }
 }
 
 .select-div {
