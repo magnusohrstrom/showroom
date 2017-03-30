@@ -41,16 +41,18 @@
     @include animation(loading,2s,forwards,infinite);
   }
   &.article:nth-child(1){
-    @include animation(loading,1160s,forwards,infinite);
+    z-index: 0;
+    height: 23em;
+    width: 23em;
+    animation:none;
+    bottom:10%;
+    left: 0%;
+    border-top: none;
+    border-left:none;
+    border-right: none;
+    //border-bottom: none;
   }
-  &.article:nth-child(2){
-    @include animation(loading,1165s,forwards,infinite);
-    animation-delay: 2s;
-  }
-  &.article:nth-child(3){
-    animation-delay: 1s;
-    @include animation(loading,1180s,forwards,infinite);
-  }
+
 }
 
 @include keyframe(loading){
@@ -147,7 +149,7 @@
     @include animation(fade-frame1,1.4s,forwards,1);
     width: 15em;
     height: 13em;
-    border:0.2em solid white;
+    border:0.5em solid white;
     //background: white;
     animation-delay: 0.6s;
   }

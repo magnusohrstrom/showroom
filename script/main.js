@@ -2,9 +2,7 @@
 const showRoom = (function(){
   let tempList = [];
   let fullList = [];
-
-
-
+  
   return {
 
     //Get function for all get requests including error handler and loading icon.

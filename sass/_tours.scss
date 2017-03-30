@@ -122,21 +122,24 @@
 }
 
 .tours-article {
-  position: relative;
+  //position: relative;
   max-width: 30em;
   height: 20em;
   width: 20em;
   background: white;
-  color:black;
+  color:$secondary-color;
   padding:2em;
   border-radius: 100%;
   margin-bottom: 1em;
+  z-index: 900;
   @include animation(fade,1s,forwards,1);
   & p {
-    margin-right: 3em;
+    border-left: 0.2rem solid $secondary-color;
+    padding-left:1em;//margin-left: -3rem;
   }
   & h2 {
-
+    //margin-left: -0.5em;
+      //  border-bottom: 0.3rem solid $secondary-color;
   }
   @include breakpoint(smedium){
     margin-bottom:-8em;
