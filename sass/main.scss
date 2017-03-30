@@ -357,13 +357,17 @@ main {
   }
   & h4 {
     font-size:1.3em;
-    //margin: 1em;
+    margin-left: 1em;
   }
   & h4 {
     font-style: italic;
     margin:0.5em 0 0 0;
   }
-
+  & h4,p,a {
+    @include breakpoint(small){
+      margin-left: 0.5em;
+    };
+  }
   & img {
     height: auto;
     width: 100%;
@@ -371,7 +375,9 @@ main {
     margin:0em;
     background-size: contain;
   }
-  & a {color:$secondary-color;}
+  & a {
+    color:$secondary-color;
+  }
 
   @include breakpoint(xxlarge){
     width: 30%;
@@ -387,6 +393,7 @@ main {
 
   @include breakpoint(small){
     width: 100%;
+
   };
 
 }

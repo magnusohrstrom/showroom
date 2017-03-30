@@ -2,7 +2,7 @@
 const showRoom = (function(){
   let tempList = [];
   let fullList = [];
-  
+
   return {
 
     //Get function for all get requests including error handler and loading icon.
@@ -14,11 +14,9 @@ const showRoom = (function(){
         url:url
       })
         .always(function(res){
-          console.log(res);
           document.getElementsByClassName('loading-container')[0].classList.toggle('active');
         })
           .fail((error)=>{
-            console.log(error);
             document.getElementsByClassName('main-figure-text-container')[0].innerHTML = `<h2>Oops! An error occured while trying to load content. </h2>`;
           });
     },
