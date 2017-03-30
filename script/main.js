@@ -102,7 +102,7 @@ const showRoom = (function(){
         }
         section.innerHTML = Html;
         showRoom.addEventListenerToListFigure();
-      }
+      }//If search shows no results append error message in section instead.
       else{
         showRoom.showEmptySearchMessage(section);
       }
@@ -114,10 +114,10 @@ const showRoom = (function(){
     },
 
     addEventListenerToListFigure: function(){
-    let listFigure = document.getElementsByClassName('list-figure');
+      let listFigure = document.getElementsByClassName('list-figure');
 
-    for (let i=0; i < listFigure.length; i++){
-      listFigure[i].addEventListener('click', showRoom.toggleActive);
+      for (let i=0; i < listFigure.length; i++){
+        listFigure[i].addEventListener('click', showRoom.toggleActive);
       }
     },
 
@@ -182,6 +182,15 @@ const showRoom = (function(){
         return false;
       }
     },
+    //Hides and shows header on scroll up/down.
+    detectUpScrollAndToggleHeader: () => {
+      $(window).bind('mousewheel', function(event) {
+          event.originalEvent.wheelDelta <= 0 ?
+            document.getElementsByTagName('header')[0].classList.add('active'):
+              document.getElementsByTagName('header')[0].classList.remove('active');
+
+      });
+    },
 
     //funciton that sets eventlisteners on app initiation and runs correct code on each html-site.
     init: function() {
@@ -191,7 +200,7 @@ const showRoom = (function(){
       document.getElementById('masterpieces-main')!== null ? showRoom.masterPiecesTour():{};
       document.getElementById('murder-main')!== null ? showRoom.murderTour():{};
       document.getElementById('flower-main')!== null ? showRoom.flowerTour():{};
-
+      showRoom.detectUpScrollAndToggleHeader();
       showRoom.smoothScrollAhref();
       document.getElementsByClassName('arrow-right')[0]!== undefined ? document.getElementsByClassName('arrow-right')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
       document.getElementsByClassName('main-img')[0]!== undefined ? document.getElementsByClassName('main-img')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};

@@ -84,10 +84,11 @@
 @include keyframe(hero-fade){
   0% {
     opacity: 0;
-    background:none;
+
   }
   50% {
-    //background: white;
+
+
   }
   100% {
     opacity: 1;
@@ -168,6 +169,17 @@
     animation-delay:0.9s;
     //background: #D6A4A4;
   }
+  &:nth-child(4){
+    //@include animation(hero,1.5s,forwards,1);
+    @include animation(fade-frame4,1.4s,forwards,1);
+    width: 10em;
+    height: 13em;
+    border:0.7em solid $secondary-color;
+    animation-delay:1.2s;
+    //background: #D6A4A4;
+  }
+
+
 
 }
 
@@ -222,6 +234,42 @@
   100%{
     top:70%;
     left:50%;
+    opacity: 0;
+  }
+};
+
+@include keyframe(fade-frame4){
+  0%{
+    opacity: 0;
+    top:70%;
+    left:10%;
+  }
+  50%{
+    top:70%;
+    left:10%;
+    opacity: 1;
+  }
+  100%{
+    top:70%;
+    left:10%;
+    opacity: 0;
+  }
+};
+
+@include keyframe(fade-frame5){
+  0%{
+    opacity: 0;
+    top:50%;
+    left:60%;
+  }
+  50%{
+    top:50%;
+    left:60%;
+    opacity: 1;
+  }
+  100%{
+    top:50%;
+    left:60%;
     opacity: 0;
   }
 };

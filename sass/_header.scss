@@ -1,8 +1,9 @@
 header {
+  opacity: 1;
   background: #DAE2F8; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #DAE2F8 , #D6A4A4); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #DAE2F8 , #D6A4A4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  position:absolute;
+  position:fixed;
   width: 100%;
   left:0;
   height: 2.4em;
@@ -11,7 +12,10 @@ header {
   @include flex-direction(row);
   @include align-items(center);
   @include justify-content(space-between);
-
+  @include transition(all 0.3s ease);
+  &.active{
+    opacity:0;
+  }
 
   & nav {
     @include flexbox();
@@ -45,6 +49,7 @@ header {
     @include transition(all 0.3s ease);
   &:hover {
     color:white;
+    @include transform(scale(1.02));
   }
 }
 
@@ -127,7 +132,7 @@ footer {
   }
   @include breakpoint(small){
     bottom:auto;
-    top:1rem;
+    top:0.7rem;
     border-bottom: 1.2em solid $secondary-color;
   };
 }

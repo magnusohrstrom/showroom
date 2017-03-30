@@ -6,13 +6,14 @@
 /*Mixin for animation on contact page*/
 /*Mixin for hide & show*/
 header {
+  opacity: 1;
   background: #DAE2F8;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #DAE2F8, #D6A4A4);
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #DAE2F8, #D6A4A4);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  position: absolute;
+  position: fixed;
   width: 100%;
   left: 0;
   height: 2.4em;
@@ -34,7 +35,14 @@ header {
   -moz-justify-content: space-between;
   -ms-justify-content: space-between;
   justify-content: space-between;
-  -ms-flex-pack: space-between; }
+  -ms-flex-pack: space-between;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  header.active {
+    opacity: 0; }
   header nav {
     display: -webkit-box;
     display: -moz-box;
@@ -86,7 +94,12 @@ header {
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease; }
   #title:hover {
-    color: white; }
+    color: white;
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    transform: scale(1.02); }
 
 #header-triangle {
   position: fixed;
@@ -206,7 +219,7 @@ footer {
   @media (max-width: 464px) {
     .index-ball {
       bottom: auto;
-      top: 1rem;
+      top: 0.7rem;
       border-bottom: 1.2em solid #060E47; } }
 
 .form-section {
@@ -1041,32 +1054,27 @@ select {
     top: 0; } }
 @-webkit-keyframes hero-fade {
   0% {
-    opacity: 0;
-    background: none; }
+    opacity: 0; }
   100% {
     opacity: 1; } }
 @-moz-keyframes hero-fade {
   0% {
-    opacity: 0;
-    background: none; }
+    opacity: 0; }
   100% {
     opacity: 1; } }
 @-ms-keyframes hero-fade {
   0% {
-    opacity: 0;
-    background: none; }
+    opacity: 0; }
   100% {
     opacity: 1; } }
 @-o-keyframes hero-fade {
   0% {
-    opacity: 0;
-    background: none; }
+    opacity: 0; }
   100% {
     opacity: 1; } }
 @keyframes hero-fade {
   0% {
-    opacity: 0;
-    background: none; }
+    opacity: 0; }
   100% {
     opacity: 1; } }
 @-webkit-keyframes fade {
@@ -1351,6 +1359,32 @@ select {
     height: 13em;
     border: 0.5em solid #D6A4A4;
     animation-delay: 0.9s; }
+  .hero-object:nth-child(4) {
+    -webkit-animation-name: fade-frame4;
+    -webkit-animation-duration: 1.4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: 1;
+    /* forward prevents the animation from restarting! */
+    -moz-animation-name: fade-frame4;
+    -moz-animation-duration: 1.4s;
+    -moz-animation-fill-mode: forwards;
+    -moz-animation-iteration-count: 1;
+    -ms-animation-name: fade-frame4;
+    -ms-animation-duration: 1.4s;
+    -ms-animation-fill-mode: forwards;
+    -ms-animation-iteration-count: 1;
+    -o-animation-name: fade-frame4;
+    -o-animation-duration: 1.4s;
+    -o-animation-fill-mode: forwards;
+    -o-animation-iteration-count: 1;
+    animation-name: fade-frame4;
+    animation-duration: 1.4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    width: 10em;
+    height: 13em;
+    border: 0.7em solid #060E47;
+    animation-delay: 1.2s; }
 
 @-webkit-keyframes fade-frame1 {
   0% {
@@ -1546,6 +1580,136 @@ select {
   100% {
     top: 70%;
     left: 50%;
+    opacity: 0; } }
+@-webkit-keyframes fade-frame4 {
+  0% {
+    opacity: 0;
+    top: 70%;
+    left: 10%; }
+  50% {
+    top: 70%;
+    left: 10%;
+    opacity: 1; }
+  100% {
+    top: 70%;
+    left: 10%;
+    opacity: 0; } }
+@-moz-keyframes fade-frame4 {
+  0% {
+    opacity: 0;
+    top: 70%;
+    left: 10%; }
+  50% {
+    top: 70%;
+    left: 10%;
+    opacity: 1; }
+  100% {
+    top: 70%;
+    left: 10%;
+    opacity: 0; } }
+@-ms-keyframes fade-frame4 {
+  0% {
+    opacity: 0;
+    top: 70%;
+    left: 10%; }
+  50% {
+    top: 70%;
+    left: 10%;
+    opacity: 1; }
+  100% {
+    top: 70%;
+    left: 10%;
+    opacity: 0; } }
+@-o-keyframes fade-frame4 {
+  0% {
+    opacity: 0;
+    top: 70%;
+    left: 10%; }
+  50% {
+    top: 70%;
+    left: 10%;
+    opacity: 1; }
+  100% {
+    top: 70%;
+    left: 10%;
+    opacity: 0; } }
+@keyframes fade-frame4 {
+  0% {
+    opacity: 0;
+    top: 70%;
+    left: 10%; }
+  50% {
+    top: 70%;
+    left: 10%;
+    opacity: 1; }
+  100% {
+    top: 70%;
+    left: 10%;
+    opacity: 0; } }
+@-webkit-keyframes fade-frame5 {
+  0% {
+    opacity: 0;
+    top: 50%;
+    left: 60%; }
+  50% {
+    top: 50%;
+    left: 60%;
+    opacity: 1; }
+  100% {
+    top: 50%;
+    left: 60%;
+    opacity: 0; } }
+@-moz-keyframes fade-frame5 {
+  0% {
+    opacity: 0;
+    top: 50%;
+    left: 60%; }
+  50% {
+    top: 50%;
+    left: 60%;
+    opacity: 1; }
+  100% {
+    top: 50%;
+    left: 60%;
+    opacity: 0; } }
+@-ms-keyframes fade-frame5 {
+  0% {
+    opacity: 0;
+    top: 50%;
+    left: 60%; }
+  50% {
+    top: 50%;
+    left: 60%;
+    opacity: 1; }
+  100% {
+    top: 50%;
+    left: 60%;
+    opacity: 0; } }
+@-o-keyframes fade-frame5 {
+  0% {
+    opacity: 0;
+    top: 50%;
+    left: 60%; }
+  50% {
+    top: 50%;
+    left: 60%;
+    opacity: 1; }
+  100% {
+    top: 50%;
+    left: 60%;
+    opacity: 0; } }
+@keyframes fade-frame5 {
+  0% {
+    opacity: 0;
+    top: 50%;
+    left: 60%; }
+  50% {
+    top: 50%;
+    left: 60%;
+    opacity: 1; }
+  100% {
+    top: 50%;
+    left: 60%;
     opacity: 0; } }
 @-webkit-keyframes fade-in-out {
   0% {
@@ -2170,11 +2334,12 @@ main {
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease; }
   .landing-h1.browse-h1:hover {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1); }
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+    color: white; }
   @media (max-width: 464px) {
     .landing-h1.browse-h1 {
       font-size: 1.3em;
