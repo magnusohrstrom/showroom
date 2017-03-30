@@ -178,21 +178,14 @@ const showRoom = (function(){
     },
     //Hides and shows header on scroll up/down.
     detectUpScrollAndToggleHeader: () => {
-      $(window).bind('wheel', function(event) {
-          event.originalEvent.wheelDelta <= 0 ?
-            document.getElementsByTagName('header')[0].classList.add('active'):
-              document.getElementsByTagName('header')[0].classList.remove('active');
+      var lastScrollTop = 0;
+      $(window).on('scroll', function() {
+        st = $(this).scrollTop();
+        st > lastScrollTop ? document.getElementsByTagName('header')[0].classList.add('active'):
+          document.getElementsByTagName('header')[0].classList.remove('active');
 
+        lastScrollTop = st;
       });
-    },
-    test: () => {
-      $(window).scroll(function() {
-
-    //if I scroll more than 1000px...
-    if($(window).scrollTop() > 1000){
-         //do whatever
-    }
-    });
     },
 
     //funciton that sets eventlisteners on app initiation and runs correct code on each html-site.
@@ -204,7 +197,8 @@ const showRoom = (function(){
       document.getElementById('murder-main')!== null ? showRoom.murderTour():{};
       document.getElementById('flower-main')!== null ? showRoom.flowerTour():{};
       showRoom.detectUpScrollAndToggleHeader();
-      showRoom.smoothScrollAhref();
+      showRoom.testScroll();
+      //showRoom.smoothScrollAhref();
       document.getElementsByClassName('arrow-right')[0]!== undefined ? document.getElementsByClassName('arrow-right')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
       document.getElementsByClassName('main-img')[0]!== undefined ? document.getElementsByClassName('main-img')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
       document.getElementsByClassName('arrow-left')[0]!== undefined ? document.getElementsByClassName('arrow-left')[0].addEventListener('click', showRoom.changeMainImgOnClickBack):{};
