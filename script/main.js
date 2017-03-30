@@ -146,8 +146,6 @@ const showRoom = (function(){
 
     changeMainImgOnClickBack: () => {
       let img = document.getElementsByClassName('main-img')[0].src;
-      console.log(img);
-      console.log(tempList[0].webImage.url);
       for (let i = 0; i < tempList.length; i++) {
         if(tempList[i].webImage.url===img){
           showRoom.appendImgToMainFigure(tempList[i-1].webImage.url,0);
@@ -180,12 +178,21 @@ const showRoom = (function(){
     },
     //Hides and shows header on scroll up/down.
     detectUpScrollAndToggleHeader: () => {
-      $(window).bind('mousewheel', function(event) {
+      $(window).bind('wheel', function(event) {
           event.originalEvent.wheelDelta <= 0 ?
             document.getElementsByTagName('header')[0].classList.add('active'):
               document.getElementsByTagName('header')[0].classList.remove('active');
 
       });
+    },
+    test: () => {
+      $(window).scroll(function() {
+
+    //if I scroll more than 1000px...
+    if($(window).scrollTop() > 1000){
+         //do whatever
+    }
+    });
     },
 
     //funciton that sets eventlisteners on app initiation and runs correct code on each html-site.
