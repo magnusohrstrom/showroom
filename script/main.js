@@ -197,7 +197,7 @@ const showRoom = (function(){
       document.getElementById('murder-main')!== null ? showRoom.murderTour():{};
       document.getElementById('flower-main')!== null ? showRoom.flowerTour():{};
       showRoom.detectUpScrollAndToggleHeader();
-      showRoom.testScroll();
+
       //showRoom.smoothScrollAhref();
       document.getElementsByClassName('arrow-right')[0]!== undefined ? document.getElementsByClassName('arrow-right')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
       document.getElementsByClassName('main-img')[0]!== undefined ? document.getElementsByClassName('main-img')[0].addEventListener('click', showRoom.changeMainImgOnClickForward):{};
