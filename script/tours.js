@@ -1,1 +1,0 @@
-showRoom.rembrandtTour();
