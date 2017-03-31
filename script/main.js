@@ -178,13 +178,16 @@ const showRoom = (function(){
     },
     //Hides and shows header on scroll up/down.
     detectUpScrollAndToggleHeader: () => {
-      var lastScrollTop = 0;
+      let lastScrollTop = 0;
+      let initialTop = $(window).scrollTop();
       $(window).on('scroll', function() {
         st = $(this).scrollTop();
-        st > lastScrollTop ? document.getElementsByTagName('header')[0].classList.add('active'):
-          document.getElementsByTagName('header')[0].classList.remove('active');
 
-        lastScrollTop = st;
+        st <= lastScrollTop||lastScrollTop===0 ? document.getElementsByTagName('header')[0].classList.remove('active'):
+          document.getElementsByTagName('header')[0].classList.add('active');
+
+        st < 0 ? false:lastScrollTop = st;
+        console.log(lastScrollTop);
       });
     },
 

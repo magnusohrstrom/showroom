@@ -26,3 +26,5 @@ Användaren ska kunna söka i bilddatabasen på konstnär, årtal, medium etc.
 Den ska även kunna göra sin egen skräddarsydda "visning där ett visst urval av blandade verk görs".
 
 #### TODO
+Hade jag haft mer tid hade jag gjort menyvalen mer precisa så att de hade scrollat till rätt position på index.html när man befinner sig i en annan html-file. Ska implemetera jquerys .load() funktion så småningom.
+Jag hade även gjort den stora "visningsmodulen" på tours där man kan bläddra bland bilderna lite mer spännande. Visa upp bilderna lite mer i ett ramformat där de exkluderar resten av sidan var tanken från början. 
